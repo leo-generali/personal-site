@@ -31,7 +31,7 @@ const styles = {
 };
 
 const plugins = [
-  new CleanWebpackPlugin(['public/dist/*']),
+  // new CleanWebpackPlugin([path.join(__dirname, '_site', 'assets', 'dist')]),
   new AssetsPlugin({
     path: path.join(__dirname, '_data'),
     filename: 'assets.json'
@@ -46,7 +46,7 @@ const config = {
   devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, '_site', 'assets', 'dist'),
-    filename: '[name].bundle.js'
+    filename: '[name]-[hash].bundle.js'
   },
 
   module: {

@@ -6,6 +6,6 @@ html(lang='en')
     title=metaTitle
     link(rel='stylesheet', href=`/assets/dist/${assets['App']['css']}`)
   body
-    h1 !{pageTitle}
-    main !{content}
+    include _partials/shared/navbar
+    main.container !{content}
 

@@ -1,9 +1,31 @@
 ---
-layout: layout.pug
+layout: base.pug
 ---
 
-each post in collections.posts
-  h2
-    a(href=post.url)=post.data.pageTitle
-  em=post.date
+section.intro
+  h1.intro__header.fade-in.fade-in--fast
+    | Hey there 
+    span(role='img' aria-label='Wave emoji') 👋 
+    | I'm Leo, a web developer living and working in Ann Arbor, Michigan.
+  div.intro__text.fade-in.fade-in--med
+    p
+      | I'm currently working over at 
+      a(href='https://www.weddingwire.com/') WeddingWire
+      |  where I help build tools that connect wedding vendors and soon to be married couples.
+    p
+      | If you want to get in touch with me, you can find me on 
+      a(href='https://twitter.com/itsLeeOhGee') Twitter
+      | , 
+      a(href='https://www.linkedin.com/in/leogenerali/') LinkedIn
+      | , or 
+      a(href='https://github.com/leo-generali') Github
+      | . If you want to say hello, you can email me 
+      a(href='mailto:me@leogenerali.com?Subject=Hello!') here
+      | .
+    p
+      | If I'm not coding, I'm probably out running. I try and post all of my runs on Strava. If that sounds like your type of thing, you can check that out over 
+      a(href='https://www.strava.com/athletes/11876587') here
+      |.
+    p
+      | I also enjoy building tools that solve problems. I get to help others out, and I learn a thing or two in the process. Here are some of the cooler things I've made:
 

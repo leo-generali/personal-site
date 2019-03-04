@@ -1,0 +1,41 @@
+.intro {
+  &__header {
+    color: white;
+    line-height: 1.75;
+    margin: 8rem 0;
+    background-image: $color-gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    span {
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: #fff;
+      background-clip: text;
+    }
+  }
+
+  &__text {
+    p {
+      &:last-child {
+        margin-bottom: 8rem;
+      }
+    }
+  }
+}
+
+.intro-projects {
+  &__title {
+    font-weight: bold;
+    color: hsla(0, 0%, 0%, 0.85);
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+  }
+
+  &__description {
+    color: #818080;
+    padding: 0 0 0 20px;
+    border-left: 5px solid;
+  }
+}
