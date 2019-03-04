@@ -1,0 +1,11 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    - const metaTitle = pageTitle ? `${pageTitle} | ${metadata['title']}` : metadata['title']
+    title=metaTitle
+    link(rel='stylesheet', href=`/assets/dist/${assets['App']['css']}`)
+  body
+    h1 !{pageTitle}
+    main !{content}
+
