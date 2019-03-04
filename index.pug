@@ -28,4 +28,12 @@ section.intro
       |.
     p
       | I also enjoy building tools that solve problems. I get to help others out, and I learn a thing or two in the process. Here are some of the cooler things I've made:
-
+section.intro-projects.fade-in.fade-in--slow
+  each project in collections.projects
+    p.intro-projects__title= project.data.name
+    p.intro-projects__description= project.data.description
+    div.intro-projects__links
+      if project.templateContent
+        a(href=project.url) Project Recap
+      a(href=project.data.liveUrl) Live
+      a(href=project.data.githubUrl) Github

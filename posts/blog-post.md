@@ -1,6 +1,0 @@
----
-date: 2017-01-01
-title: Blog post
----
-
-This is a paragraph of text.

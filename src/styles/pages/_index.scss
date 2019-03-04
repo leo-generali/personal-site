@@ -2,7 +2,7 @@
   &__header {
     color: white;
     line-height: 1.75;
-    margin: 8rem 0;
+    margin-bottom: 8rem;
     background-image: $color-gradient;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -37,5 +37,13 @@
     color: #818080;
     padding: 0 0 0 20px;
     border-left: 5px solid;
+  }
+
+  &__links {
+    font-size: 1.8rem;
+
+    a {
+      margin-right: 1rem;
+    }
   }
 }

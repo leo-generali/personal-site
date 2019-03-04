@@ -26,6 +26,12 @@
     font-size: 1.7rem;
     padding: 0.5rem 0;
     display: flex;
+
+    a {
+      &:after {
+        border-bottom: none;
+      }
+    }
   }
 
   &__item-year {

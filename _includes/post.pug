@@ -9,4 +9,7 @@ html(lang="en")
     title=metaTitle
   body
     include _partials/shared/navbar
-    main.container !{content}
+    main.container
+      article
+        h1 !{pageTitle}
+        section !{content}

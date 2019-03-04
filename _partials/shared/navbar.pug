@@ -1,5 +1,5 @@
 nav.navbar
   ul.navbar__inner
     each link in nav
-      li
-        a.navbar__link(class={'navbar__link--active': false} href=link.slug)=link.anchor
+      li.navbar__link
+        a(class={'navbar__link--active': false} href=link.slug)=link.anchor
