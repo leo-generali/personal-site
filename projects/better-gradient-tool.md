@@ -6,5 +6,3 @@ description: Gradient selecting tool built with React. Helps developers and desi
 liveUrl: https://leo-generali.github.io/better-gradient-tool/
 githubUrl: https://github.com/leo-generali/better-gradient-tool
 ---
-
-This is a paragraph of text.
