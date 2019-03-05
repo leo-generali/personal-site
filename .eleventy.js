@@ -17,4 +17,6 @@ module.exports = function(eleventyConfig) {
 
     return Object.entries(groupedPosts);
   });
+
+  eleventyConfig.addPassthroughCopy('favicon.ico');
 };
