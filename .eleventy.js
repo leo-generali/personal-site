@@ -1,7 +1,23 @@
 const moment = require('moment');
 const groupBy = require('lodash.groupby');
+const htmlmin = require('html-minifier');
 
 module.exports = function(eleventyConfig) {
+  // Minify HTML
+  eleventyConfig.addTransform('htmlmin', function(content, outputPath) {
+    if (outputPath.endsWith('.html')) {
+      let minified = htmlmin.minify(content, {
+        useShortDoctype: true,
+        removeComments: true,
+        collapseWhitespace: true
+      });
+      return minified;
+    }
+
+    return content;
+  });
+
+  // Group all blog posts by year
   eleventyConfig.addCollection('postsByYear', (collection) => {
     const posts = collection
       .getAllSorted()
@@ -18,5 +34,6 @@ module.exports = function(eleventyConfig) {
     return Object.entries(groupedPosts);
   });
 
+  // Copy over favicon to build site
   eleventyConfig.addPassthroughCopy('favicon.ico');
 };
