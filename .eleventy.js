@@ -1,6 +1,7 @@
 const moment = require('moment');
 const groupBy = require('lodash.groupby');
 const htmlmin = require('html-minifier');
+const alex = require('alex');
 
 module.exports = function(eleventyConfig) {
   // Minify HTML
@@ -22,11 +23,9 @@ module.exports = function(eleventyConfig) {
     const posts = collection
       .getAllSorted()
       .filter((item) => item.inputPath.match(/^\.\/posts\//) !== null)
-      .map((post) => {
-        const o = Object.assign({}, post);
-        o.readableDate = moment(post.date).format('MMMM D, YYYY');
-        return o;
-      })
+      .map(
+        (post) => (post.readableDate = moment(post.date).format('MMMM D, YYYY'))
+      )
       .reverse();
 
     const groupedPosts = groupBy(posts, (post) => post.date.getFullYear());

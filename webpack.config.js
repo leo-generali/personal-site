@@ -31,7 +31,7 @@ const styles = {
 };
 
 const plugins = [
-  // new CleanWebpackPlugin([path.join(__dirname, '_site', 'assets', 'dist')]),
+  new CleanWebpackPlugin([path.join(__dirname, '_site', 'assets', 'dist')]),
   new AssetsPlugin({
     path: path.join(__dirname, '_data'),
     filename: 'assets.json'

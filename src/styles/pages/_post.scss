@@ -1,16 +1,6 @@
 .post {
-  &__title {
-    font-size: 3.6rem;
-  }
-
   &__date {
-    font-size: 1.8rem;
-  }
-
-  &__line-break {
-    margin-top: 3.6rem;
-    height: 0.2rem;
-    width: 100%;
-    background-image: $color-gradient;
+    font-size: 1.6rem;
+    color: rgb(153, 153, 153);
   }
 }

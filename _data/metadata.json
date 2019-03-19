@@ -1,9 +1,7 @@
 {
   "title": "Leo Generali",
-  "url": "https://www.markdownguide.org",
+  "url": "https://www.leogenerali.com",
   "baseurl": "",
-  "repo": "http://github.com/mattcone/markdown-guide",
-  "comments": false,
   "author": {
     "name": "Matt Cone"
   },

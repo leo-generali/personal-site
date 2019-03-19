@@ -5,28 +5,38 @@ html {
     Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
-p {
-  font-size: 1.8rem;
+body {
+  font-size: 1.7rem;
   line-height: 1.7;
+}
+
+p {
   margin-bottom: 1.5rem;
 }
 
-h1 {
+h1,
+h2,
+h3 {
+  margin: 3.2rem 0px 1.6rem;
   font-weight: bold;
-  font-size: 2.8rem;
   line-height: 1.25;
-  margin-top: 3.6rem;
-  margin-bottom: 2.8rem;
   color: $color-primary;
 }
 
+h1 {
+  font-size: 3.2rem;
+}
+
 h2 {
+  font-size: 2.8rem;
+}
+
+h3 {
+  font-size: 2.4rem;
+}
+
+strong {
   font-weight: bold;
-  font-size: 2.5rem;
-  line-height: 1.25;
-  margin-top: 3.6rem;
-  margin-bottom: 2.8rem;
-  color: $color-primary;
 }
 
 a {

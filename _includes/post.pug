@@ -4,7 +4,8 @@ html(lang="en")
   body
     include _partials/shared/navbar
     main.container
-      article
-        h1 !{pageTitle}
-        section !{content}
+      article.post.fade-in.fade-in--fast
+        h1.post__title !{pageTitle}
+        p.post__date Published !{fullDate}
+        section.fade-in.fade-in--med !{content}
     include _partials/shared/ga
