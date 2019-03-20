@@ -1,3 +1,4 @@
+- const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
 <!DOCTYPE html>
 html(lang="en")
   include _partials/shared/head
@@ -6,6 +7,6 @@ html(lang="en")
     main.container
       article.post.fade-in.fade-in--fast
         h1.post__title !{pageTitle}
-        p.post__date Published !{fullDate}
+        p.post__date Published !{page.date.toLocaleDateString("en-US", dateOptions) }
         section.fade-in.fade-in--med !{content}
     include _partials/shared/ga

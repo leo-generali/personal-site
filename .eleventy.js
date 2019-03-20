@@ -23,9 +23,6 @@ module.exports = function(eleventyConfig) {
     const posts = collection
       .getAllSorted()
       .filter((item) => item.inputPath.match(/^\.\/posts\//) !== null)
-      .map(
-        (post) => (post.readableDate = moment(post.date).format('MMMM D, YYYY'))
-      )
       .reverse();
 
     const groupedPosts = groupBy(posts, (post) => post.date.getFullYear());
