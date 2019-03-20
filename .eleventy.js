@@ -1,7 +1,5 @@
-const moment = require('moment');
 const groupBy = require('lodash.groupby');
 const htmlmin = require('html-minifier');
-const alex = require('alex');
 
 module.exports = function(eleventyConfig) {
   // Minify HTML
