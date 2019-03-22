@@ -5,8 +5,21 @@ html(lang="en")
   body
     include _partials/shared/navbar
     main.container
-      article.post.fade-in.fade-in--fast
-        h1.post__title !{pageTitle}
-        p.post__date Published !{page.date.toLocaleDateString("en-US", dateOptions) }
+      article.post
+        h1.fade-in.fade-in--fast.post__title !{pageTitle}
+        p.fade-in.fade-in--fast.post__date Published !{page.date.toLocaleDateString("en-US", dateOptions) }
         section.fade-in.fade-in--med !{content}
+        if !(typeof footnotes === 'undefined')
+          section.fade-in.fade-in--slow
+            hr
+            strong Footnotes:
+            ol.footnotes
+              each footnote, index in footnotes
+                - const noteIndex = index + 1;
+                - const id = `f${noteIndex}`;
+                - const refId = `#a${noteIndex}`
+                li.footnotes__item(id=id ) !{footnote}
+                  | 
+                  a.footnotes__back(href=refId) (Back)
+
     include _partials/shared/ga

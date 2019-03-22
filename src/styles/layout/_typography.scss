@@ -63,3 +63,14 @@ a {
     z-index: -1;
   }
 }
+
+sup {
+  vertical-align: super;
+  font-size: smaller;
+
+  a {
+    &:after {
+      content: none;
+    }
+  }
+}

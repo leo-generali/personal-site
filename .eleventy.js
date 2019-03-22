@@ -1,7 +1,10 @@
 const groupBy = require('lodash.groupby');
 const htmlmin = require('html-minifier');
+const inclusiveLangPlugin = require('@11ty/eleventy-plugin-inclusive-language');
 
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addPlugin(inclusiveLangPlugin);
+
   // Minify HTML
   eleventyConfig.addTransform('htmlmin', function(content, outputPath) {
     if (outputPath.endsWith('.html')) {
@@ -20,7 +23,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addCollection('postsByYear', (collection) => {
     const posts = collection
       .getAllSorted()
-      .filter((item) => item.inputPath.match(/^\.\/posts\//) !== null)
+      .filter((item) => item.inputPath.match(/^\.\/writing\//) !== null)
       .reverse();
 
     const groupedPosts = groupBy(posts, (post) => post.date.getFullYear());
@@ -30,4 +33,5 @@ module.exports = function(eleventyConfig) {
 
   // Copy over favicon to build site
   eleventyConfig.addPassthroughCopy('favicon.ico');
+  eleventyConfig.addPassthroughCopy('img');
 };
