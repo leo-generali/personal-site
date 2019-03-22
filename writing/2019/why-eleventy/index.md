@@ -1,5 +1,5 @@
 ---
-date: 2019-03-22T20:28:48-0500
+date: 2019-03-22T00:00:00-0500
 pageTitle: Migrating Away from Gatsby
 type: General
 footnotes:
