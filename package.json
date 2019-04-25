@@ -6,21 +6,25 @@
   "author": "Leo Generali <leogen17@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@11ty/eleventy": "^0.7.1",
+    "@11ty/eleventy": "^0.8.2",
     "@11ty/eleventy-plugin-inclusive-language": "^1.0.0",
     "alex": "^7.1.0",
     "assets-webpack-plugin": "^3.9.10",
     "autoprefixer": "^9.4.9",
+    "chalk": "^2.4.2",
     "clean-webpack-plugin": "^1.0.1",
     "concurrently": "^4.1.0",
     "css-loader": "^2.1.0",
     "cssnano": "^4.1.10",
     "html-minifier": "^3.5.21",
+    "inquirer": "^6.3.1",
+    "json-to-pretty-yaml": "^1.2.2",
     "lodash.groupby": "^4.6.0",
     "mini-css-extract-plugin": "^0.5.0",
     "moment": "^2.24.0",
     "node-sass": "^4.11.0",
     "postcss-loader": "^3.0.0",
+    "prettier": "^1.17.0",
     "sass-loader": "^7.1.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3"
@@ -29,6 +33,7 @@
     "test-language": "alex posts/*/**",
     "assets": "webpack --mode development --watch",
     "dev": "concurrently \"webpack --mode development --watch\" \"eleventy --serve\" --names \"📦,💻\" --prefix name",
-    "build": "webpack --mode production && eleventy"
+    "build": "webpack --mode production && eleventy",
+    "new-post": "node ./scripts/new-post.js"
   }
 }

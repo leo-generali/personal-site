@@ -1,0 +1,40 @@
+.tag {
+  background-color: #8795e8;
+  color: lighten(#8795e8, 25%);
+  font-size: 1.2rem;
+  padding: 0.3rem 0.6rem;
+  margin-right: 1rem;
+  border-radius: 0.6rem;
+
+  &:first-child {
+    @media screen and (min-width: 700px) {
+      margin-left: auto;
+    }
+  }
+
+  &:last-child {
+    margin-right: 0; 
+  }
+
+  &__link {
+    display: inline-block;
+    transition: 0.1s;
+
+    &:hover {
+      background-color: $color-primary-dark;
+      transform: translateY(-0.3rem);
+      color: #fff;
+    }
+
+    &:active {
+      transform: translateY(0.1rem);
+    }
+
+    &:after{
+      content: none;
+      &:after {
+        border-bottom-color: none;
+      }
+    }
+  }
+}

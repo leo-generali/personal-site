@@ -2,6 +2,11 @@
 date: 2019-03-22T00:00:00-0500
 pageTitle: Migrating Away from Gatsby
 type: General
+tags: 
+  - javascript
+  - gatsby
+  - react
+  - eleventy
 footnotes:
   - I think this is probably the same for most personal developer blogs. Personally speaking, if I come across a post there's little chance that I'll click around and stay on the site. 9 times out of 10 once I've read the post I close the tab.
   - According to Google's Lighthouse tool. <a href="/img/writing/2019/eleventy-results.png">Eleventy results</a>. <a href="/img/writing/2019/gatsby-results.png">Gatsby results</a>.

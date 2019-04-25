@@ -1,4 +1,4 @@
 {
-  "tags": "projects",
+  "tags": ["projects"],
   "layout": "post.pug"
 }

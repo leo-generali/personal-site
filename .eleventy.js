@@ -19,6 +19,8 @@ module.exports = function(eleventyConfig) {
     return content;
   });
 
+  eleventyConfig.addCollection('tagsList', require('./scripts/get-all-tags'));
+
   // Group all blog posts by year
   eleventyConfig.addCollection('postsByYear', (collection) => {
     const posts = collection

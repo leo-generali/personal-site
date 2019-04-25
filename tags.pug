@@ -1,0 +1,33 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all 
+    - projects
+    - tagsList
+    - postsByYear
+  addAllPagesToCollections: true
+permalink: '| /writing/#{tag}/'
+layout: base.pug
+---
+
+- const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+- const tagMap = {javascript: 'JavaScript'}
+
+section.tags
+  p Sort by tag
+  div.tags__collection
+    a.tag.tag__link(href=`/writing/`) all posts
+    each tagInTagList in collections.tagsList
+      unless tagInTagList === tag
+        a.tag.tag__link(href=`/writing/${tagInTagList}`)=tagInTagList
+
+ul.writing
+  span.writing__block-header=tagMap[tag] || tag.charAt(0).toUpperCase() + tag.slice(1)
+  each post in collections[tag]
+    li.writing__item
+      a(href=post.url)=post.data.pageTitle
+      span.writing__item-year
+        =post.date.toLocaleDateString("en-US", dateOptions) 
