@@ -38,3 +38,47 @@
     }
   }
 }
+
+.spoiler {
+  position: relative;
+  margin-bottom: 1.5rem;
+
+  &:hover {
+    .spoiler__text {
+      filter: blur(0.5rem);
+
+      &--revealed {
+        filter: none;
+      }
+    }
+  }
+
+  &__reveal {
+    position: absolute;
+    z-index: 1;
+    display: inline-block;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 1rem 1rem;
+    text-decoration: none;
+    background-color: $color-primary;
+    color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.1s;
+
+    &:hover {
+      transform: translateY(-0.2rem);
+      background-color: $color-primary-dark;
+    }
+  }
+
+  &__text {
+    transition: 0.1s;
+    filter: blur(1rem);
+
+    &--revealed {
+      filter: none;
+    }
+  }
+}

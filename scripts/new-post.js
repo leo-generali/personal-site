@@ -15,8 +15,6 @@ const slugify = (text) =>
     .replace(/^-+/, '') // Trim - from start of text
     .replace(/-+$/, ''); // Trim - from end of text
 
-const log = console.log;
-const error = chalk.bold.red;
 const success = chalk.bold.green.inverse;
 
 const newPost = async () => {
@@ -25,7 +23,7 @@ const newPost = async () => {
     // Get the title and category for the blog post
     const { title, type, tags } = await inquirer.prompt([
       { type: 'input', name: 'title', message: 'Post Title:' },
-      { type: 'input', name: 'type', message: 'Post Type:' }
+      { type: 'input', name: 'type', message: 'Post Type:' },
       { type: 'input', name: 'tags', message: 'Post Tags (comma seperated):' }
     ]);
 
@@ -35,10 +33,10 @@ const newPost = async () => {
     // Create path for post based on when it was created
     const createDate = new Date();
     const year = createDate.getFullYear();
-    const postPath = `./writing/${year}/${slug}`;
+    const postPath = `./writing/${year}`;
 
     // Turn the tags into an array
-    const tagsArr = tags.split(',').map(tag => tag.trim());
+    const tagsArr = tags.split(',').map((tag) => tag.trim());
 
     // If the file year doesn't exist, automatically create it
     if (!fs.existsSync(postPath)) {
@@ -66,7 +64,7 @@ const newPost = async () => {
     );
 
     // Write the post to disk
-    fs.writeFileSync(`${postPath}/index.md`, initialMarkdownPostTemplate);
+    fs.writeFileSync(`${postPath}/${slug}.md`, initialMarkdownPostTemplate);
     success(`Post ${title} was created successfully`);
   }
 };

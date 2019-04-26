@@ -1,23 +1,12 @@
 ---
 layout: base.pug
 ---
+include _mixins/tags
+include _mixins/writing
 
-- const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
-
-section.tags.fade-in.fade-in--fast
-  p Sort by tag
-  div.tags__collection
-    each tag in collections.tagsList
-      a.tag.tag__link(href=`/writing/${tag}`)=tag
-
++tags(collections.tagsList)
 ul.writing.fade-in.fade-in--fast
   each group in collections.postsByYear
     span.writing__block-header=group[0]
     each post in group[1]
-      li.writing__item
-        a(href=post.url)=post.data.pageTitle
-        span.writing__item-year
-          =post.date.toLocaleDateString("en-US", dateOptions) 
-        div.writing__tag-collection
-          each tag in post.data.tags
-            span.tag=tag
+      +post(post)

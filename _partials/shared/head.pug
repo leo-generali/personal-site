@@ -5,5 +5,4 @@ head
   meta(name="description", content="Leo Generali is a Full Stack Developer in Ann Arbor, Michigan. He creates thoughtfully designed web apps with JavaScript, Rails, and PHP.")
   link(rel="stylesheet", href=`/assets/dist/${assets['App']['css']}`)
   link(rel="icon" type="image/ico" href="/favicon.ico")
-  - const metaTitle = pageTitle ? `${pageTitle} | ${metadata['title']}` : metadata['title']
-  title=metaTitle
+  title=pageTitle ? `${pageTitle} | ${metadata['title']}` : metadata['title']

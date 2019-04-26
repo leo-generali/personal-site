@@ -32,8 +32,9 @@
   "scripts": {
     "test-language": "alex posts/*/**",
     "assets": "webpack --mode development --watch",
-    "dev": "concurrently \"webpack --mode development --watch\" \"eleventy --serve\" --names \"📦,💻\" --prefix name",
-    "build": "webpack --mode production && eleventy",
+    "dev": "concurrently \"webpack --mode development --watch\" \"ELEVENTY_ENV=development eleventy --serve\" --names \"📦,💻\" --prefix name",
+    "dev:test-prod": "concurrently \"webpack --mode development --watch\" \"ELEVENTY_ENV=production eleventy --serve\" --names \"📦,💻\" --prefix name",
+    "build": "webpack --mode production && ELEVENTY_ENV=production eleventy",
     "new-post": "node ./scripts/new-post.js"
   }
 }

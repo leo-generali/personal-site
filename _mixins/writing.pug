@@ -1,0 +1,12 @@
+- const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+
+mixin post(post, isTagsPage)
+  unless post.data.published === false && project.environment === 'production'
+    li.writing__item
+      a(href=post.url)=post.data.pageTitle
+      span.writing__item-year
+        =post.date.toLocaleDateString("en-US", dateOptions) 
+      unless isTagsPage
+        div.writing__tag-collection
+          each tag in post.data.tags
+            span.tag=tag
