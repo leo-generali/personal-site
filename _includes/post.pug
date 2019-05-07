@@ -5,11 +5,12 @@ layout: base.pug
 - const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
 
 article.post
-  h1.fade-in.fade-in--fast.post__title !{pageTitle}
-  p.fade-in.fade-in--fast.post__date Published !{page.date.toLocaleDateString("en-US", dateOptions) }
-  section.fade-in.fade-in--med !{content}
+  div.post__info
+    h1.post__title !{pageTitle}
+    p.post__date Published !{page.date.toLocaleDateString("en-US", dateOptions) }
+  section !{content}
   unless typeof footnotes === 'undefined' || footnotes.length === 0
-    section.fade-in.fade-in--slow
+    section
       hr
       strong Footnotes:
       ol.footnotes

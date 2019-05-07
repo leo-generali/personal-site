@@ -1,4 +1,8 @@
 .post {
+  &__info {
+    margin-bottom: 1.5rem;
+  }
+
   &__date {
     font-size: 1.6rem;
     color: rgb(153, 153, 153);
@@ -41,7 +45,8 @@
 
 .spoiler {
   position: relative;
-  margin-bottom: 1.5rem;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
 
   &:hover {
     .spoiler__text {

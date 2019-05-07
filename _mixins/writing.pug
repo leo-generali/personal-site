@@ -9,4 +9,4 @@ mixin post(post, isTagsPage)
       unless isTagsPage
         div.writing__tag-collection
           each tag in post.data.tags
-            span.tag=tag
+            span.category-tag=tag

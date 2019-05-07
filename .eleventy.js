@@ -1,9 +1,12 @@
 const groupBy = require('lodash.groupby');
 const htmlmin = require('html-minifier');
 const inclusiveLangPlugin = require('@11ty/eleventy-plugin-inclusive-language');
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = function(eleventyConfig) {
+  // Plugins
   eleventyConfig.addPlugin(inclusiveLangPlugin);
+  eleventyConfig.addPlugin(syntaxHighlight);
 
   // Minify HTML
   eleventyConfig.addTransform('htmlmin', function(content, outputPath) {
@@ -32,6 +35,8 @@ module.exports = function(eleventyConfig) {
 
     return Object.entries(groupedPosts);
   });
+
+
 
   // Copy over favicon to build site
   eleventyConfig.addPassthroughCopy('favicon.ico');

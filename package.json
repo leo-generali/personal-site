@@ -36,5 +36,8 @@
     "dev:test-prod": "concurrently \"webpack --mode development --watch\" \"ELEVENTY_ENV=production eleventy --serve\" --names \"📦,💻\" --prefix name",
     "build": "webpack --mode production && ELEVENTY_ENV=production eleventy",
     "new-post": "node ./scripts/new-post.js"
+  },
+  "dependencies": {
+    "@11ty/eleventy-plugin-syntaxhighlight": "^2.0.3"
   }
 }

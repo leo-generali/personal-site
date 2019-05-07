@@ -1,13 +1,15 @@
+$color-primary-light: #94d0ff;
 $color-primary: #8795e8;
 $color-primary-dark: #6c77b9;
+$color-secondary: #ff6ad5;
 
 $max-width: 70rem;
 
 $color-gradient: linear-gradient(
   -60deg,
-  #ff6ad5,
+  $color-secondary,
   #c774e8,
   #ad8cff,
-  #8795e8,
-  #94d0ff
+  $color-primary,
+  $color-primary-light
 );

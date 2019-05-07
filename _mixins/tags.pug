@@ -3,7 +3,7 @@ mixin tags(tags, isTagsPage, currentTag)
     p.tags__sort Sort by tag
     div.tags__collection
       if isTagsPage 
-        a.tag.tag__link(href=`/writing/`) all posts
+        a.category-tag.category-tag__link(href=`/writing/`) all posts
       each tag in tags
         unless tag === currentTag
-          a.tag.tag__link(href=`/writing/${tag}`)=tag
+          a.category-tag.category-tag__link(href=`/writing/${tag}`)=tag
