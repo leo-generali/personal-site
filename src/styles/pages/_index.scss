@@ -11,19 +11,16 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: #fff;
       background-clip: text;
+      margin-right: 0.5rem;
     }
   }
 
   &__text {
-    p {
-      &:last-child {
-        margin-bottom: 8rem;
-      }
-    }
+    margin-bottom: 8rem;
   }
 }
 
-.intro-projects {
+.intro-project {
   &__title {
     font-weight: bold;
     color: hsla(0, 0%, 0%, 0.85);
@@ -31,15 +28,17 @@
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
+    margin-bottom: 1rem;
   }
 
   &__description {
     color: #818080;
     padding: 0 0 0 20px;
-    border-left: 5px solid;
+    border-left: 0.5rem solid;
   }
 
   &__links {
+    margin-top: 1rem;
     font-size: 1.8rem;
 
     a {

@@ -1,16 +1,9 @@
 mixin tags(tags, isTagsPage, currentTag)
-  if isTagsPage
-    section.tags
-      p Sort by tag
-      div.tags__collection
+  section.tags
+    p.tags__sort Sort by tag
+    div.tags__collection
+      if isTagsPage 
         a.tag.tag__link(href=`/writing/`) all posts
-        each tagInTagList in tags
-          unless tagInTagList === currentTag
-            a.tag.tag__link(href=`/writing/${tagInTagList}`)=tagInTagList
-  else
-    section.tags.fade-in.fade-in--fast
-      p Sort by tag
-      div.tags__collection
-        each tag in tags
+      each tag in tags
+        unless tag === currentTag
           a.tag.tag__link(href=`/writing/${tag}`)=tag
-

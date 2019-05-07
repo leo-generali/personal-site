@@ -2,16 +2,16 @@
 layout: base.pug
 ---
 
-section.intro
-  h1.intro__header.fade-in.fade-in--fast
+section.intro.circle-in.fade-in.fade-in--med
+  h1.intro__header
     | Hey there! 
     span(role='img' aria-label='Wave emoji') 👋 
-    | I'm Leo, a web developer living and working in Ann Arbor, Michigan.
-  div.intro__text.fade-in.fade-in--med
+    |  I'm Leo, a web developer living and working in Ann Arbor, Michigan.
+  div.intro__text
     p
       | I'm currently working over at 
-      a(href='https://www.weddingwire.com/') WeddingWire
-      |  where I help build tools that connect wedding vendors and soon to be married couples.
+      a(href='https://www.theknotww.com/') The Knot Worldwide
+      |  where I build tools that connect wedding vendors and soon to be married couples.
     p
       | If you want to get in touch with me, you can find me on 
       a(href='https://twitter.com/itsLeeOhGee') Twitter
@@ -26,14 +26,17 @@ section.intro
       | If I'm not coding, I'm probably out running. I try and post all of my runs on Strava. If that sounds like your type of thing, you can check that out over 
       a(href='https://www.strava.com/athletes/11876587') here
       |.
-    p
-      | I also enjoy building tools that solve problems. I get to help others out, and I learn a thing or two in the process. Here are some of the cooler things I've made:
-section.intro-projects.fade-in.fade-in--slow
+    p 
+      | If I find myself with a spare minute or two I enjoy working on personal projects. I'll typically try to solve an issue I'm running into.
+      | I learn a thing or two in the process and maybe solve a problem for others too. Here are some of the cooler things I've made:
+
+section.fade-in.fade-in--slow
   each project in collections.projects
-    p.intro-projects__title= project.data.name
-    p.intro-projects__description= project.data.description
-    div.intro-projects__links
-      if project.templateContent
-        a(href=project.url) Project Recap
-      a(href=project.data.liveUrl) Live
-      a(href=project.data.githubUrl) Github
+    div.intro-project
+      p.intro-project__title= project.data.name
+      p.intro-project__description= project.data.description
+      div.intro-project__links
+        if project.templateContent
+          a(href=project.url) Project Recap
+        a(href=project.data.liveUrl) Live
+        a(href=project.data.githubUrl) Github

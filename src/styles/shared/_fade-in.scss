@@ -1,11 +1,3 @@
-@mixin fadeIn($time) {
-  animation-name: fade-in;
-  animation-duration: 0.2s;
-  animation-timing-function: linear;
-  animation-fill-mode: backwards;
-  animation-delay: $time;
-}
-
 .fade-in {
   animation-name: fade-in;
   animation-duration: 0.2s;

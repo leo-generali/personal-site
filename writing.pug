@@ -4,8 +4,8 @@ layout: base.pug
 include _mixins/tags
 include _mixins/writing
 
-+tags(collections.tagsList)
-ul.writing.fade-in.fade-in--fast
++tags(collections.tagsList, false)
+ul.writing
   each group in collections.postsByYear
     span.writing__block-header=group[0]
     each post in group[1]
