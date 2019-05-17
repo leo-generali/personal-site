@@ -71,6 +71,7 @@ a {
 sup {
   vertical-align: super;
   font-size: smaller;
+  line-height: 1;
 
   a {
     &:after {

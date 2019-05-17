@@ -31,8 +31,8 @@ if hasSpoiler
     btns.forEach(btn => {
       btn.addEventListener('click', function(event) {
         event.preventDefault();
-        var spoilerText = this.parentNode.querySelector('.spoiler__text');
-        spoilerText.classList.add('spoiler__text--revealed');
+        var spoilerText = this.parentNode.querySelector('.spoiler__content');
+        spoilerText.classList.add('spoiler__content--revealed');
         this.remove();
       });
     })

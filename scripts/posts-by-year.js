@@ -1,3 +1,5 @@
+const groupBy = require('lodash.groupby');
+
 module.exports = (collection) => {
   const posts = collection
     .getAllSorted()
