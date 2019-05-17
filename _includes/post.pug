@@ -22,7 +22,10 @@ article.post
             | 
             a.footnotes__back(href=refId) (Back)
 
-if tags.includes('tutorial')
+- const spoilerRegex = /<div class="spoiler">/gi
+- const hasSpoiler = spoilerRegex.test(content)
+
+if hasSpoiler
   script.
     var btns = document.querySelectorAll('.spoiler__reveal');
     btns.forEach(btn => {
