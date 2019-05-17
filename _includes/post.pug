@@ -22,7 +22,7 @@ article.post
             | 
             a.footnotes__back(href=refId) (Back)
 
-- const spoilerRegex = /<div class="spoiler">/gi
+- const spoilerRegex = /SPOILER_START/gi
 - const hasSpoiler = spoilerRegex.test(content)
 
 if hasSpoiler

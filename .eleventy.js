@@ -8,6 +8,7 @@ module.exports = function(eleventyConfig) {
 
   // Content Transforms
   eleventyConfig.addTransform('htmlmin', require('./scripts/html-minify'))
+  eleventyConfig.addTransform('spoilerBlocks', require('./scripts/add-spoiler-blocks'))
 
   // Collections
   eleventyConfig.addCollection('tagsList', require('./scripts/get-all-tags'));
