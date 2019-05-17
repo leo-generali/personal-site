@@ -22,19 +22,21 @@ module.exports = function(eleventyConfig) {
     return content;
   });
 
+  // prettier-ignore
   eleventyConfig.addCollection('tagsList', require('./scripts/get-all-tags'));
+  eleventyConfig.addCollection('postsByYear', require('./scripts/posts-by-year'))
 
-  // Group all blog posts by year
-  eleventyConfig.addCollection('postsByYear', (collection) => {
-    const posts = collection
-      .getAllSorted()
-      .filter((item) => item.inputPath.match(/^\.\/writing\//) !== null)
-      .reverse();
+  // // Group all blog posts by year
+  // eleventyConfig.addCollection('postsByYear', (collection) => {
+  //   const posts = collection
+  //     .getAllSorted()
+  //     .filter((item) => item.inputPath.match(/^\.\/writing\//) !== null)
+  //     .reverse();
 
-    const groupedPosts = groupBy(posts, (post) => post.date.getFullYear());
+  //   const groupedPosts = groupBy(posts, (post) => post.date.getFullYear());
 
-    return Object.entries(groupedPosts);
-  });
+  //   return Object.entries(groupedPosts);
+  // });
 
 
 

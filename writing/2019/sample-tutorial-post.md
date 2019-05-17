@@ -24,27 +24,6 @@ Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In
       return {
         users: []
       }
-    },
-
-    componentDidMount: function() {
-      var _this = this;
-      $.get('/path/to/user-api').then(function(response) {
-        _this.setState({users: response})
-      });
-    },
-
-    render: function() {
-      return (
-        <ul className="user-list">
-          {this.state.users.map(function(user) {
-            return (
-              <li key={user.id}>
-                <Link to="{'/users/' + user.id}">{user.name}</Link>
-              </li>
-            );
-          })}
-        </ul>
-      );
     }
   });
   ```
