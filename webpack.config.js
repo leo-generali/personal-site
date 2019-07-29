@@ -32,7 +32,7 @@ const styles = {
 
 const plugins = [
   new AssetsPlugin({
-    path: path.join(__dirname, '_data'),
+    path: path.join(__dirname, 'src', '_data'),
     filename: 'assets.json'
   }),
   new MiniCssExtractPlugin({ filename: '[name].css' })
@@ -40,7 +40,7 @@ const plugins = [
 
 const config = {
   entry: {
-    App: './src/webpack-entry.js'
+    App: './src/assets/webpack-entry.js'
   },
   devtool: 'source-map',
   output: {

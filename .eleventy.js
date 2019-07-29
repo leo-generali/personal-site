@@ -1,5 +1,5 @@
 const inclusiveLangPlugin = require('@11ty/eleventy-plugin-inclusive-language');
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
+const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 
 module.exports = function(eleventyConfig) {
   // Plugins
@@ -7,14 +7,33 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
 
   // Content Transforms
-  eleventyConfig.addTransform('htmlmin', require('./scripts/html-minify'))
-  eleventyConfig.addTransform('spoilerBlocks', require('./scripts/add-spoiler-blocks'))
+  eleventyConfig.addTransform(
+    'htmlmin',
+    require('./src/transforms/html-minify')
+  );
+  eleventyConfig.addTransform(
+    'spoilerBlocks',
+    require('./src/transforms/add-spoiler-blocks')
+  );
 
   // Collections
-  eleventyConfig.addCollection('tagsList', require('./scripts/get-all-tags'));
-  eleventyConfig.addCollection('postsByYear', require('./scripts/posts-by-year'))
+  eleventyConfig.addCollection(
+    'tagsList',
+    require('./src/collections/get-all-tags')
+  );
+  eleventyConfig.addCollection(
+    'postsByYear',
+    require('./src/collections/posts-by-year')
+  );
 
   // Copy over favicon to build site
   eleventyConfig.addPassthroughCopy('favicon.ico');
-  eleventyConfig.addPassthroughCopy('img');
+  eleventyConfig.addPassthroughCopy('./src/img');
+
+  return {
+    dir: {
+      input: 'src',
+      output: '_site'
+    }
+  };
 };
