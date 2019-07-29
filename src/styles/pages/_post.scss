@@ -15,11 +15,18 @@
   ul {
     list-style-type: disc;
     list-style-position: inside;
+  }
 
+  ul, ol {
     li {
-      margin-bottom: 1rem;
+      margin-bottom: 1rem
     }
   }
+}
+
+pre {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .footnotes {
@@ -50,7 +57,9 @@
 
   &:hover {
     .spoiler__content {
-      filter: blur(0.5rem);
+      &--hidden {
+        filter: blur(0.5rem);
+      }
 
       &--revealed {
         filter: none;
@@ -71,6 +80,8 @@
     cursor: pointer;
     text-align: center;
     transition: 0.1s;
+    top: 0;
+    left: 0;
 
     &:hover {
       transform: translateY(-0.2rem);
@@ -80,7 +91,10 @@
 
   &__content {
     transition: 0.1s;
-    filter: blur(1rem);
+    
+    &--hidden {
+      filter: blur(1rem);
+    }
 
     &--revealed {
       filter: none;

@@ -12,13 +12,7 @@ footnotes:
 ---
 
 SPOILER_START
-```js
-  const isThisFeatureCool = true;
-
-  if(isThisFeatureCool) {
-    console.log('Woah this is a cool feature! And helpful too!')
-  }
-```
+  // Something I want to wrap in spoiler blocks!
 SPOILER_END
 
 ```html

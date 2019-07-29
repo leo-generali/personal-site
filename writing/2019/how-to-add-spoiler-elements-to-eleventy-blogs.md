@@ -1,6 +1,6 @@
 ---
-date: 2019-05-17T00:00:00-0500
-pageTitle: How to Add Spoiler Elements to Eleventy Blogs
+date: 2019-07-25T00:00:00-0500
+pageTitle: Adding Spoiler Elements to Eleventy Blogs
 type: Tutorial
 published: false
 tags:
@@ -8,10 +8,10 @@ tags:
   - javascript
   - eleventy
 footnotes:
-  - The finer details of this post will be <a href="https://www.11ty.io/" target="_blank">Eleventy</a> specific but the overall broad strokes should be applicable to a majority of websites.
+  - The finer details of this post will be <a href="https://www.11ty.io/" target="_blank">Eleventy</a> specific but the overall broad strokes should be applicable to any markdown backed blogs.
 ---
 
-I've always been a fan of technical tutorials that default to obfuscating elements of pages that are used in teaching process. It's easier said than done to promise yourself you'll try and solve a problem instead of just copying the code block and moving on with your day. Working through a problem is one of my favorite ways to learn something new, and my hope is to pass that on through this blog. Of course, if that's not something you're interested in, there is always the option to reveal the hidden element. This post will outline how I built the feature for this website.<sup id="a1">[1](#f1)</sup> Here is how it ended up looking:
+I've always been a fan of technical tutorials that default to hiding elements of the pages that are used in the teaching process. It's easier said than done to promise yourself you'll try and solve a problem instead of just copying the code block and moving on with your day. Working through a problem is one of my favorite ways to learn something new, and my hope is to pass that on through this blog. Of course, if that's not something you're interested in, there is always the option to reveal the hidden element. This post will outline how I built the feature for this website.<sup id="a1">[1](#f1)</sup> Here is how it ended up looking:
 
 SPOILER_START
 ```js
@@ -25,16 +25,96 @@ SPOILER_END
 
 ## Adding the Spoiler Blocks
 
-The posts for this blog are backed by markdown files. I wrap elements that I want to be "unspoiled" with a few lines of HTML. It's a little clunky but it ensures that I have full control over which elements I can spoiler out. The HTML looks like this: 
+The posts for this blog are backed by markdown files. At first, I was manually adding the spoiler block HTML elements in my markdown files. This was problematic for two reasons: 
 
-```html
-  <div class="spoiler">
-    <button class="spoiler__reveal">reveal</button>
-    <div class="spoiler__content">
-      // Content I'm Hiding. Can be anything: 
-      // images, text, code blocks, etc.
-    </div>
-  </div>
+- I couldn't memorize the exact set of elements and class names I used to create the spoiler blocks. I would always copy and paste them over and over. 
+- Making a change to the blocks would have been a huge pain. I'd have to go through each of my blog posts and replace the HTML elements by hand.
+
+Clearly, this wasn't scaleable!
+
+So what did I do?
+
+I created special flags in my markdown files that delineate content that should be hidden in a spoiler block. I use [Eleventy's transform functionality](https://www.11ty.io/docs/config/#transforms) to replace the two flags with the proper HTML elements. In my case any time Eleventy comes across `SPOILER_START_ESC` and `SPOILER_END_ESC` the transform function will kick in and wrap the content in the proper elements.
+
+In practice my markdown files end up looking like this:
+
+```js
+  SPOILER_START_ESC
+    // Something I want to wrap in spoiler blocks!
+  SPOILER_END_ESC
 ```
 
+I no longer have to memorize the specific set of elements I use whenever I want to hide some content. If I make a change to the way the spoilers are displayed it will propegate to all of my posts. A huge win by all accounts!
 
+## Hiding Content
+
+At this point the content I want initially hidden automatically gets wrapping in the following HTML:
+
+```html
+<div class="spoiler">
+  <button class="spoiler__reveal">reveal</button>
+  <div class="spoiler__content"> 
+    // Something I want to wrap in spoiler blocks! 
+  </div>
+</div>
+```
+
+We're getting somewhere! Without the proper styling though this is just adding needless HTML elements to the DOM. So what does proper styling look like?
+
+In my case I wanted the hidden content to be blurred beyond legibility. Once revealed, the content becomes clear. On desktop, there is an added effect of slightly turning down the blur percentage on hover.
+
+The Sass implemntation of the above functions like this:
+
+```scss
+.spoiler {
+    &__content {
+    transition: 0.1s;
+    filter: blur(1rem);
+
+    &--revealed {
+      filter: none;
+    }
+  }
+
+  &:hover {
+    .spoiler__content {
+      filter: blur(0.5rem);
+
+      &--revealed {
+        filter: none;
+      }
+    }
+  }
+}
+```
+
+By default we add a `filter: blur` to the spoiler blocks and remove the filter (`filter: none`) with a `.spoiler--revealed` class. We'll talk a little more about the `.spoiler--revealed` class in the next section. What's important here is the overall idea that we have varying levels of visibility for our spoiler blocks.
+
+Adding a `filter: blur` to the content is not the only way of achieving a spoiler reveal effect. The spoiler reveal can be anything you can imagine: [a flip card](https://3dtransforms.desandro.com/card-flip), [a slide toggle](https://codepen.io/robbyklein/pen/JFdru), or even [a fade-in](https://codepen.io/ianaya89/pen/qEqWWB).
+
+## Revealing the Spoilers
+
+I want to keep my personal website light. The JavaScript to handle revealing the hidden content is only pulled in on blog posts that have the spoiler blocks in them. If there isn't a spoiler the JavaScript doesn't even get added. The script to reveal the content looks like this: 
+
+```js
+var btns = document.querySelectorAll('.spoiler__reveal');
+btns.forEach(btn => {
+  btn.addEventListener('click', function(event) {
+    event.preventDefault();
+    var spoilerText = this.parentNode.querySelector('.spoiler__content');
+    spoilerText.classList.add('spoiler__content--revealed');
+    this.remove();
+  });
+})
+```
+
+There's some ES6 going on in here: 
+- I'm finding all of the `.spoiler__reveal` buttons.
+- On click, each button adds the `.spoiler__content--revealed` class to the `.spoiler__content` element. 
+- The button element itself gets removed because it is no longer needed. For my purposes once content has been revealed it is considered revealed until the page refreshes.
+
+## Working Spoilers!
+
+And there you have it! Working spoilers! This isn't 100% the implementation that I currently use on this site. I noticed pretty quickly that if you happen upon my blog without JavaScript enabled you'd have a hard time reading the gated content. I worked around that by adding the blur effect and the button to reveal **only** if the user has JavaScript enabled.
+
+Please let me know if you end up adding something similar to this to your website. It's a fun little addition that I think packs a powerful punch for your users. Go on, spoiler-ize all the things!

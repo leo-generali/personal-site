@@ -27,12 +27,21 @@ article.post
 
 if hasSpoiler
   script.
-    var btns = document.querySelectorAll('.spoiler__reveal');
-    btns.forEach(btn => {
+    var spoilers = document.querySelectorAll('.spoiler');
+
+    spoilers.forEach(spoiler => {
+      var btn = document.createElement('button');
+      var spoilerContent = spoiler.querySelector('.spoiler__content');
+      spoilerContent.classList.add('spoiler__content--hidden');
+      
+      btn.classList = 'spoiler__reveal';
+      btn.innerText = 'reveal';
+
       btn.addEventListener('click', function(event) {
         event.preventDefault();
-        var spoilerText = this.parentNode.querySelector('.spoiler__content');
-        spoilerText.classList.add('spoiler__content--revealed');
+        spoilerContent.classList.add('spoiler__content--revealed');
         this.remove();
       });
+
+      spoiler.appendChild(btn);
     })
