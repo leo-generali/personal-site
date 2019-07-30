@@ -1,9 +1,11 @@
 {
   "title": "Leo Generali",
   "url": "https://www.leogenerali.com",
+  "desc": "Leo Generali is a Full Stack Developer in Ann Arbor, Michigan. He creates thoughtfully designed web apps with JavaScript, Rails, and PHP.",
   "baseurl": "",
   "author": {
     "name": "Leo Generali"
   },
+  "twitter_handle": "itsleeohgee",
   "og_locale": "en_US"
 }

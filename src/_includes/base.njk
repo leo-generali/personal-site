@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" type="image/ico" href="/favicon.ico" />
+    <link rel="stylesheet" href="{% inlineCss %}">
+    {% include "partials/meta-info.njk" %}
+  </head>
+<body>
+  {% include "partials/navbar.njk" %}
+  <main class="container">
+    {{ content | safe }}
+  </main>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-80982613-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  {% if hasSpoiler %}
+    <script>
+      var spoilers = document.querySelectorAll('.spoiler');
+
+      spoilers.forEach(spoiler => {
+        var btn = document.createElement('button');
+        var spoilerContent = spoiler.querySelector('.spoiler__content');
+        spoilerContent.classList.add('spoiler__content--hidden');
+
+        btn.classList = 'spoiler__reveal';
+        btn.innerText = 'reveal';
+
+        btn.addEventListener('click', function(event) {
+          event.preventDefault();
+          spoilerContent.classList.add('spoiler__content--revealed');
+          this.remove();
+        });
+
+        spoiler.appendChild(btn);
+      })
+    </script>
+  {% endif %}
+</body>
+</html>

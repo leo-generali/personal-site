@@ -1,9 +1,0 @@
-mixin tags(tags, isTagsPage, currentTag)
-  section.tags
-    p.tags__sort Sort by tag
-    div.tags__collection
-      if isTagsPage 
-        a.category-tag.category-tag__link(href=`/writing/`) all posts
-      each tag in tags
-        unless tag === currentTag
-          a.category-tag.category-tag__link(href=`/writing/${tag}`)=tag

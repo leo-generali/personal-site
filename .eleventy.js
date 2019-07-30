@@ -1,9 +1,9 @@
-const inclusiveLangPlugin = require('@11ty/eleventy-plugin-inclusive-language');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+const CleanCSS = require('clean-css');
+const moment = require('moment');
 
 module.exports = function(eleventyConfig) {
   // Plugins
-  eleventyConfig.addPlugin(inclusiveLangPlugin);
   eleventyConfig.addPlugin(syntaxHighlight);
 
   // Content Transforms
@@ -25,6 +25,13 @@ module.exports = function(eleventyConfig) {
     'postsByYear',
     require('./src/collections/posts-by-year')
   );
+
+  // Filters
+  eleventyConfig.addShortcode('inlineCss', require('./src/scripts/inline-css'));
+  eleventyConfig.addFilter('formatDate', (date) =>
+    moment(date).format('MMMM D, YYYY')
+  );
+  eleventyConfig.addFilter('formatTag', require('./src/scripts/format-tag'));
 
   // Copy over favicon to build site
   eleventyConfig.addPassthroughCopy('favicon.ico');

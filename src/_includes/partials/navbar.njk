@@ -1,0 +1,9 @@
+<nav class="navbar">
+  <ul class="navbar__inner">
+    {% for link in nav %}
+      <li class="navbar__link">
+        <a href={{ link.slug }}>{{ link.anchor }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

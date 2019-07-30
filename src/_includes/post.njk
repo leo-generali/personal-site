@@ -1,0 +1,29 @@
+---
+layout: base.njk
+---
+
+<article class="post">
+  <div class="post__info">
+    <h1 class="post__title">{{ title }}</h1>
+    <p class="post__date">Published {{ date | formatDate}}</p>
+    <section>
+      {{ content | safe }}
+    </section>
+    {% if footnotes.length >= 1 %}
+      <section>
+        <hr>
+        <strong>Footnotes:</strong>
+        <ol class="footnotes">
+          {% for footnote in footnotes %}
+            {% set id = "f" + loop.index %}
+            {% set refId = "#a" + loop.index %}
+            <li class="footnotes__item" id="{{ id }}">
+              {{ footnote | safe }}
+              <a href="{{ refId }}" class="footnotes__back">(Back)</a>
+            </li>
+          {% endfor %}
+        </ol>
+      </section>
+    {% endif %}
+  </div>
+</article>

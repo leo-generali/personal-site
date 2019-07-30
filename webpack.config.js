@@ -13,7 +13,7 @@ const postcss = {
   loader: 'postcss-loader',
   options: {
     plugins() {
-      return [autoprefixer({ browsers: 'last 3 versions' }), cssnano({})];
+      return [autoprefixer(), cssnano({})];
     }
   }
 };
