@@ -5,9 +5,9 @@ module.exports = (collection) => {
     .getFilteredByGlob('src/writing/**/*.md')
     .map((post) => {
       const { published } = post.data;
-      post.data.pageTitle = published
-        ? post.data.pageTitle
-        : `${post.data.pageTitle} - DRAFT`;
+      post.data.title = published
+        ? post.data.title
+        : `${post.data.title} - DRAFT`;
       return post;
     })
     .reverse();
