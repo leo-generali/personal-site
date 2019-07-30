@@ -2,12 +2,12 @@ const assets = require('../_data/assets.json');
 const fs = require('fs');
 const path = require('path');
 
-module.exports = () => {
+const developmentStylesheet = () => {
   const filename = assets.App.css;
   return `<link rel="stylesheet" href=/assets/dist/${filename} />`;
 };
 
-const inlineCss = () => {
+const productionStylesheet = () => {
   const filename = path.join(
     __dirname,
     '..',
@@ -23,7 +23,14 @@ const inlineCss = () => {
     return data;
   });
 
-  return css;
+  return `<style>${css}</style>`;
 };
 
-module.exports = inlineCss;
+module.exports = (environment) => {
+  const map = {
+    development: developmentStylesheet(),
+    production: productionStylesheet()
+  };
+
+  return map[environment];
+};
