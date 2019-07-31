@@ -20,7 +20,7 @@ isTagsPage: true
 {% include 'partials/tags.njk' %}
 <ul class="writing">
   <span class="writing__block-header">{{ tag | formatTag }}</span>
-  {% for post in collections[tag] %}
+  {% for post in collections[tag] | reverse %}
     <li class="writing__item">
       <a href="{{ post.url }}">{{ post.data.title }}</a>
       <span class="writing__item-year">{{ post.date | formatDate }}</span>

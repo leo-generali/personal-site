@@ -1,7 +1,7 @@
 <nav class="navbar">
   <ul class="navbar__inner">
     {% for link in nav %}
-      <li class="navbar__link">
+      <li class="navbar__link {% if link.slug == page.url %} navbar__link--active {% endif%}">
         <a href={{ link.slug }}>{{ link.anchor }}</a>
       </li>
     {% endfor %}
