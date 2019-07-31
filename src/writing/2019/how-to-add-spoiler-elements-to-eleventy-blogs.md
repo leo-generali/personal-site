@@ -12,7 +12,19 @@ footnotes:
   - The finer details of this post will be <a href="https://www.11ty.io/" target="_blank">Eleventy</a> specific but the overall broad strokes should be applicable to any markdown backed blogs.
 ---
 
-I've always been a fan of technical tutorials that default to hiding elements of the pages that are used in the teaching process. It's easier said than done to promise yourself you'll try and solve a problem instead of just copying the code block and moving on with your day. Working through a problem is one of my favorite ways to learn something new, and my hope is to pass that on through this blog. Of course, if that's not something you're interested in, there is always the option to reveal the hidden element. This post will outline how I built the feature for this website.<sup id="a1">[1](#f1)</sup> Here is how it ended up looking:
+## Spoiler Blocks
+
+I've always been a fan of technical tutorials that default to hiding elements of pages that are used in the teaching process.
+
+I always promise myself to give tutorial examples a fair shake and an honest effort. Surprise - this doesn't usually happen. I find myself copying the troublesome code block more often than not and moving on with my day.
+
+In the rare times that I do work through a problem I find thqat I take away more from the tutorial than I would have otherwise. Working through a problem is one of my favorite ways to learn something new, and my hope is to pass that on through this blog.
+
+This post will outline how I built a "spoiler" feature for my blog[^1]. Upcoming tutorial posts will have hidden content that adds an extra safeguard for readers who prefer to work through problems themselves.
+
+If that's not something readers are interested in there is always the option to reveal the hidden element. 
+
+Before we start, an example of what I'm talkig about: 
 
 SPOILER_START
 ```js
@@ -24,11 +36,10 @@ SPOILER_START
 ```
 SPOILER_END
 
-## Adding the Spoiler Blocks
+## How I Added the Spoiler Blocks
 
-The posts for this blog are backed by markdown files. At first, I was manually adding the spoiler block HTML elements in my markdown files. This was problematic for two reasons: 
-
-- I couldn't memorize the exact set of elements and class names I used to create the spoiler blocks. I would always copy and paste them over and over. 
+When I was first playing around with the spoiler blocks I was wrapping the content in my posts with HTML. This was problematic for multiple reasons:
+- I could never memorize the exact set of elements and class names I used to create the spoiler blocks. I found myself copying and pasting them over and over.
 - Making a change to the blocks would have been a huge pain. I'd have to go through each of my blog posts and replace the HTML elements by hand.
 
 Clearly, this wasn't scaleable!
@@ -119,3 +130,5 @@ There's some ES6 going on in here:
 And there you have it! Working spoilers! This isn't 100% the implementation that I currently use on this site. I noticed pretty quickly that if you happen upon my blog without JavaScript enabled you'd have a hard time reading the gated content. I worked around that by adding the blur effect and the button to reveal **only** if the user has JavaScript enabled.
 
 Please let me know if you end up adding something similar to this to your website. It's a fun little addition that I think packs a powerful punch for your users. Go on, spoiler-ize all the things!
+
+[^1]: The finer details of this post will be <a href="https://www.11ty.io/" target="_blank">Eleventy</a> specific but the overall broad strokes should be applicable to any markdown backed blogs.

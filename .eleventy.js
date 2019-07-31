@@ -27,7 +27,6 @@ module.exports = function(eleventyConfig) {
   );
 
   // Filters
-  eleventyConfig.addShortcode('inlineCss', require('./src/scripts/inline-css'));
   eleventyConfig.addFilter('formatDate', (date) =>
     moment(date).format('MMMM D, YYYY')
   );
@@ -40,6 +39,9 @@ module.exports = function(eleventyConfig) {
   // Copy over favicon to build site
   eleventyConfig.addPassthroughCopy('favicon.ico');
   eleventyConfig.addPassthroughCopy('./src/img');
+
+  // Configure markdown
+  eleventyConfig.addPlugin(require('./src/scripts/markdown-config'));
 
   return {
     dir: {

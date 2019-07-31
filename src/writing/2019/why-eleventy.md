@@ -8,9 +8,6 @@ tags:
   - gatsby
   - react
   - eleventy
-footnotes:
-  - I think this is probably the same for most personal developer blogs. Personally speaking, if I come across a post there's little chance that I'll click around and stay on the site. 9 times out of 10 once I've read the post I close the tab.
-  - According to Google's Lighthouse tool. <a href="/img/writing/2019/eleventy-results.png">Eleventy results</a>. <a href="/img/writing/2019/gatsby-results.png">Gatsby results</a>.
 ---
 
 **Preface:** I think Gatsby is wonderful. It does a ton of fascinating things and it does them well. It might not have been the right tool for my personal website but that doesn't mean you shouldn't use it in your projects.
@@ -43,7 +40,7 @@ If that's not enough to convince you, check out this [tweet](https://twitter.com
 
 ## Performance
 
-As I mentioned above, users coming to check out my website are not staying around too long.<sup id="a1">[1](#f1)</sup> Since that was the case, I wanted to optimize my site for first-time users. Switching to shipping HTML/CSS with no JavaScript improved speed metrics across the board:<sup id="a2">[2](#f2)</sup>
+As I mentioned above, users coming to check out my website are not staying around too long[^1]. Since that was the case, I wanted to optimize my site for first-time users. Switching to shipping HTML/CSS with no JavaScript improved speed metrics across the board[^2]:
 
 |                        | Gatsby <span class="writing__table-unit">(seconds)<span> | 11ty <span class="writing__table-unit">(seconds)<span> | Improvement <span class="writing__table-unit">(percent)<span> |
 | ---------------------- | :------------------------------------------------------: | :----------------------------------------------------: | :-----------------------------------------------------------: |
@@ -64,3 +61,6 @@ Though Gatsby wasn't ultimately the right choice for me, that does not mean that
 ## Outro
 
 For my specific use case, a full-fledged Gatsby application did not make sense. I surveyed a few other static site generators and ended up trying out Eleventy. It's got a ton of features I really like about it and stopped me from shipping unneeded JavaScript to the client. I've seen some performance benefits and haven't lost any features from my old Gatsby site.
+
+[^1]: I think this is probably the same for most personal developer blogs. Personally speaking, if I come across a post there's little chance that I'll click around and stay on the site. 9 times out of 10 once I've read the post I close the tab.
+[^2]: According to Google's Lighthouse tool. <a href="/img/writing/2019/eleventy-results.png">Eleventy results</a>. <a href="/img/writing/2019/gatsby-results.png">Gatsby results</a>.

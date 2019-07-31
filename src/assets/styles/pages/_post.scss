@@ -39,10 +39,15 @@ pre {
       display: inline-block;
       width: 2.5rem;
     }
+
+    p {
+      display: inline;
+    }
   }
 
   &__back {
     font-size: 12px;
+    margin-left: 0.5rem;
 
     &:after {
       content: none;
