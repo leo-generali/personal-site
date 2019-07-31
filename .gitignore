@@ -1,4 +1,5 @@
 _site
+_datacache
 node_modules
 _data/assets.json
 src/styles/dist
