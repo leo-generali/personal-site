@@ -9,21 +9,5 @@ layout: base.njk
     <section>
       {{ content | safe }}
     </section>
-    {% if footnotes.length >= 1 %}
-      <section>
-        <hr>
-        <strong>Footnotes:</strong>
-        <ol class="footnotes">
-          {% for footnote in footnotes %}
-            {% set id = "f" + loop.index %}
-            {% set refId = "#a" + loop.index %}
-            <li class="footnotes__item" id="{{ id }}">
-              {{ footnote | safe }}
-              <a href="{{ refId }}" class="footnotes__back">(Back)</a>
-            </li>
-          {% endfor %}
-        </ol>
-      </section>
-    {% endif %}
   </div>
 </article>

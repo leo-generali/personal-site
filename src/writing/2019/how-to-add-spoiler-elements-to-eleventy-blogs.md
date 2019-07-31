@@ -8,8 +8,6 @@ tags:
   - javascript
   - eleventy
 hasSpoiler: true
-footnotes:
-  - The finer details of this post will be <a href="https://www.11ty.io/" target="_blank">Eleventy</a> specific but the overall broad strokes should be applicable to any markdown backed blogs.
 ---
 
 ## Spoiler Blocks
