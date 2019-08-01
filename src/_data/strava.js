@@ -9,8 +9,6 @@ const getCacheKey = () => {
     1}-${date.getUTCDate()}`;
 };
 
-const 
-
 const fetchData = async () => {
   console.log('Fetching new strava data...');
 
