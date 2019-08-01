@@ -1,6 +1,7 @@
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const CleanCSS = require('clean-css');
 const moment = require('moment');
+const fs = require('fs');
 
 module.exports = function(eleventyConfig) {
   // Plugins
@@ -35,6 +36,7 @@ module.exports = function(eleventyConfig) {
   // Copy over favicon to build site
   eleventyConfig.addPassthroughCopy('favicon.ico');
   eleventyConfig.addPassthroughCopy('./src/img');
+  eleventyConfig.addPassthroughCopy('_redirects');
 
   // Configure markdown
   eleventyConfig.addPlugin(require('./src/scripts/markdown-config'));
