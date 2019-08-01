@@ -31,10 +31,6 @@ module.exports = function(eleventyConfig) {
     moment(date).format('MMMM D, YYYY')
   );
   eleventyConfig.addFilter('formatTag', require('./src/scripts/format-tag'));
-  eleventyConfig.addShortcode(
-    'addStylesheet',
-    require('./src/scripts/add-stylesheet')
-  );
 
   // Copy over favicon to build site
   eleventyConfig.addPassthroughCopy('favicon.ico');
