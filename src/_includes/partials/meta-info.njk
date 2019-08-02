@@ -21,6 +21,10 @@
 <link rel="canonical" href="{{ currentUrl }}" />
 <meta name="description" content="{{ pageDesc }}" />
 
+{% if isNotIndexed %}
+  <meta name="robots" content="noindex, follow">
+{% endif %}
+
 {# Twitter Meta Tags #}
 <meta name="twitter:creator" content="@{{ metadata.twitter_handle | replace('@', '') }}" />
 <meta name="twitter:description" content="{{ pageDesc }}" />

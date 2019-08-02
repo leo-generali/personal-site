@@ -32,6 +32,9 @@ module.exports = function(eleventyConfig) {
     moment(date).format('MMMM D, YYYY')
   );
   eleventyConfig.addFilter('formatTag', require('./src/scripts/format-tag'));
+  eleventyConfig.addFilter('log', (content) => {
+    console.log(content);
+  });
 
   // Copy over favicon to build site
   eleventyConfig.addPassthroughCopy('favicon.ico');
