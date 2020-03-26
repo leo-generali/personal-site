@@ -17,6 +17,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("keys", filters.keys);
   eleventyConfig.addFilter("formatDate", filters.formatDate);
   eleventyConfig.addFilter("formatTag", filters.formatTag);
+  eleventyConfig.addFilter("publishedPosts", filters.publishedPosts);
   eleventyConfig.addFilter("log", filters.log);
 
   // Shortcodes

@@ -44,7 +44,7 @@ permalink: /writing/{{ currentPageTag }}/index.html
   {% set postToLoopThrough = 'writing' if isMainPage else currentPageTag %}
 
   {# Get all of the posts for the current page #}
-  {% set posts = collections[postToLoopThrough] | reverse %}
+  {% set posts = collections[postToLoopThrough] | reverse | publishedPosts %}
 
   {% if isMainPage %}
     {# Get the year of the latest post #}
@@ -67,14 +67,18 @@ permalink: /writing/{{ currentPageTag }}/index.html
         {% year currentYear %}
         {% set year = currentYear %}
       {% endif %}
-      <div class='mb-20 grid grid-cols-1 gap-1 md:grid-cols-2 '>
-        <div>
-          {% link post.data.title, post.url %}
-        </div>
+      <div
+        class='
+          mb-8 grid grid-cols-1 gap-1 md:grid-cols-2
+          last:m-0'>
+        <div>{% link post.data.title, post.url %}</div>
         <span class='ml-auto'>{{ post.data.date | formatDate('MMMM D, YYYY') }}</span>
-        <ul class='col-start-2 flex justify-end text-gray-600 font-semibold text-xs '>
+        <ul class='col-start-2 flex justify-end text-gray-600 font-semibold text-xs'>
+          {% if not post.data.published %}
+            <li class='mr-2'>DRAFT</li>
+          {% endif %}
           {% for postTag in post.data.tags %}
-            <li class='span mr-2 last:mr-0'>{{ postTag }}</li>
+            <li class='span {% if not loop.last %}mr-2{% endif %}'>{{ postTag }}</li>
           {% endfor %}
         </ul>
       </div>
@@ -82,14 +86,17 @@ permalink: /writing/{{ currentPageTag }}/index.html
   {% else %}
     {% year currentPageTag | formatTag %}
     {% for post in posts %}
-      <div class='mb-20 grid grid-cols-1 gap-1 md:grid-cols-2 '>
+      <div 
+        class='
+          mb-8 grid grid-cols-1 gap-1 md:grid-cols-2
+          last:m-0'>
         <div>
           {% link post.data.title, post.url %}
         </div>
         <span class='ml-auto'>{{ post.data.date | formatDate('MMMM D, YYYY') }}</span>
-        <ul class='col-start-2 flex justify-end text-gray-600 font-semibold text-xs '>
+        <ul class='col-start-2 flex justify-end text-gray-600 font-semibold text-xs'>
           {% for postTag in post.data.tags %}
-            <li class='span mr-2 last:mr-0'>{{ postTag }}</li>
+            <li class='span {% if not loop.last %}mr-2{% endif %}'>{{ postTag }}</li>
           {% endfor %}
         </ul>
       </div>

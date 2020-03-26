@@ -32,5 +32,5 @@ module.exports = async () => {
     ]);
 
   // Add a home page tag (/)
-  return [...new Set([...tags, "/"])];
+  return [...new Set([...tags.sort(), "/"])];
 };

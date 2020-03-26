@@ -8,7 +8,8 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
   content: [
     "./src/*.njk",
     "./src/_includes/*.njk",
-    "./src/_includes/partials/*.njk"
+    "./src/_includes/partials/*.njk",
+    "./src/eleventy/*.js"
   ],
   defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
 });
