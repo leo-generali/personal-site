@@ -1,41 +1,27 @@
 const shortcodes = require("./src/eleventy/shortcodes");
+const transforms = require("./src/eleventy/transforms");
+const filters = require("./src/eleventy/filters");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
-const moment = require("moment");
 
 module.exports = function (eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(syntaxHighlight);
 
   // Content Transforms
-  eleventyConfig.addTransform(
-    "htmlmin",
-    require("./src/transforms/html-minify")
-  );
-  eleventyConfig.addTransform(
-    "spoilerBlocks",
-    require("./src/transforms/add-spoiler-blocks")
-  );
-
-  // Collections
-  eleventyConfig.addCollection(
-    "tagsList",
-    require("./src/collections/get-all-tags")
-  );
-  eleventyConfig.addCollection(
-    "postsByYear",
-    require("./src/collections/posts-by-year")
-  );
+  if (process.env.ELEVENTY_ENV === "production") {
+    eleventyConfig.addTransform("htmlmin", transforms.minifyHtml);
+  }
+  eleventyConfig.addTransform("spoilerBlocks", transforms.spoilerBlocks);
 
   // Filters
-  eleventyConfig.addFilter("formatDate", date =>
-    moment(date).format("MMMM D, YYYY")
-  );
-  eleventyConfig.addFilter("formatTag", require("./src/scripts/format-tag"));
-  eleventyConfig.addFilter("log", content => {
-    console.log(content);
-  });
+  eleventyConfig.addFilter("keys", filters.keys);
+  eleventyConfig.addFilter("formatDate", filters.formatDate);
+  eleventyConfig.addFilter("formatTag", filters.formatTag);
+  eleventyConfig.addFilter("log", filters.log);
 
+  // Shortcodes
   eleventyConfig.addShortcode("link", shortcodes.link);
+  eleventyConfig.addShortcode("year", shortcodes.year);
 
   eleventyConfig.addWatchTarget("./src/assets/styles/index.css");
   eleventyConfig.addWatchTarget("./tailwind.config.js");

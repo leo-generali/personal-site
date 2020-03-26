@@ -1,22 +1,98 @@
 ---
 layout: base.njk
+pagination:
+  data: writingTags
+  size: 1
+  alias: currentPageTag
 title: Writing
+permalink: /writing/{{ currentPageTag }}/index.html
 ---
+{% set isMainPage = currentPageTag === "/" %}
 
-{% include 'partials/tags.njk' %}
-<ul class="writing">
-  {% for group in collections.postsByYear %}
-    <span class="writing__block-header">{{ group[0] }}</span>
-    {% for post in group[1] %}
-      <li class="writing__item">
-        <a href="{{ post.url }}">{{ post.data.title }}</a>
-        <span class="writing__item-year">{{ post.date | formatDate }}</span>
-        <div class="writing__tag-collection">
-          {% for tag in post.data.tags %}
-            <span class="category-tag">{{ tag }}</span>
-          {% endfor %}
-        </div>
-      </li>
+
+
+<section>
+  <p class="text-xl font-bold mb-4">Sort by Tag</p>
+  <div class="flex">
+    {% if not isMainPage %}
+        <a 
+          href="/writing" 
+          class="
+            tag
+            bg-indigo-400 text-white text-xs text-center 
+            px-2 py-1 rounded transition duration-100
+            mr-2
+            hover:bg-indigo-600">all posts</a>
+    {% endif %}
+    {% for tag in writingTags %}
+      {# Only show tags for pages the page you are not one #}
+      {# Also do not show tag for homepage #}
+      {% if currentPageTag !== tag and tag !== '/' %}
+        <a 
+          href="/writing/{{ tag }}" 
+          class="
+            tag
+            bg-indigo-400 text-white text-xs text-center 
+            px-2 py-1 rounded transition duration-100
+            mr-2
+            hover:bg-indigo-600">{{ tag }}</a>
+      {% endif  %}
     {% endfor %}
-  {% endfor %}
-</ul>
+  </div>
+</section>
+<section class="mt-20">
+  {% set postToLoopThrough = 'writing' if isMainPage else currentPageTag %}
+
+  {# Get all of the posts for the current page #}
+  {% set posts = collections[postToLoopThrough] | reverse %}
+
+  {% if isMainPage %}
+    {# Get the year of the latest post #}
+    {% set year = posts[0].data.date | formatDate('YYYY') %}
+
+    {# Write down the year of the latest post #}
+    {% year year %}
+    {% for post in posts %}
+      {# Get the year of currently looped post #}
+      {% set currentYear = post.data.date | formatDate('YYYY') %}
+
+      {# If current post was published in current loop year #}
+      {# do not put down the year! If it wasn't change the  #}
+      {# current loop year to the current post year and change #}
+      {# the current loop year! #}
+
+      {# We know that the first loop will NOT post a year #}
+      {# it will always be the year we are in. #}
+      {% if currentYear !== year %}
+        {% year currentYear %}
+        {% set year = currentYear %}
+      {% endif %}
+      <div class='mb-20 grid grid-cols-1 gap-1 md:grid-cols-2 '>
+        <div>
+          {% link post.data.title, post.url %}
+        </div>
+        <span class='ml-auto'>{{ post.data.date | formatDate('MMMM D, YYYY') }}</span>
+        <ul class='col-start-2 flex justify-end text-gray-600 font-semibold text-xs '>
+          {% for postTag in post.data.tags %}
+            <li class='span mr-2 last:mr-0'>{{ postTag }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  {% else %}
+    {% year currentPageTag | formatTag %}
+    {% for post in posts %}
+      <div class='mb-20 grid grid-cols-1 gap-1 md:grid-cols-2 '>
+        <div>
+          {% link post.data.title, post.url %}
+        </div>
+        <span class='ml-auto'>{{ post.data.date | formatDate('MMMM D, YYYY') }}</span>
+        <ul class='col-start-2 flex justify-end text-gray-600 font-semibold text-xs '>
+          {% for postTag in post.data.tags %}
+            <li class='span mr-2 last:mr-0'>{{ postTag }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  {% endif %}
+</section>

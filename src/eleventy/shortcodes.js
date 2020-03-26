@@ -6,4 +6,7 @@ const link = (text, url, args) => {
       hover:text-indigo-600'>${text}</a>`;
 };
 
-module.exports = { link };
+const year = num =>
+  `<span class='year block font-bold pl-4 text-3xl relative mb-4'>${num}</span>`;
+
+module.exports = { link, year };

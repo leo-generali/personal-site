@@ -26,14 +26,14 @@ body {
 }
 
 .container {
-  width: 46rem;
+  max-width: 46rem;
 }
 
-a:hover:after {
+a:not(.tag):hover:after {
   @apply border-indigo-600;
 }
 
-a:after {
+a:not(.tag):after {
   content: "";
   @apply border border-solid border-indigo-400 w-full absolute left-0;
   bottom: -0.15rem;
@@ -42,6 +42,20 @@ a:after {
 .text p:first-child,
 .text p + p {
   @apply mb-6;
+}
+
+.year:after {
+  content: "";
+  @apply absolute h-full left-0;
+  background-image: linear-gradient(
+    -60deg,
+    #ff6ad5,
+    #c774e8,
+    #ad8cff,
+    #8795e8,
+    #94d0ff
+  );
+  width: 0.3125rem;
 }
 
 @tailwind utilities;
