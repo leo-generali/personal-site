@@ -2,11 +2,11 @@
 layout: base.njk
 ---
 
-<section>
+<section class='mb-20'>
   <h1 class="intro text-white mb-24 text-3xl font-bold">
     Hey there! <span class='mr-1' role="img" aria-label="Wave emoji">👋 </span> I'm Leo, a web developer living and working in Ann Arbor, Michigan.
   </h1>
-  <div>
+  <div class='text'>
     <p>I'm currently working over at {% link "Hearst Autos", "https://www.hearstautos.com/" %} on the Car & Driver brand where I help connect automobile shoppers and vendors.</p>
     <p>Getting in touch with me is easy! You can find me on {% link "Twitter", "https://twitter.com/itsLeeOhGee" %}, {% link "LinkedIn", "https://www.linkedin.com/in/leogenerali/"%}, or {% link "Github", "https://github.com/leo-generali" %}. To say hello,
       you can reach my by email {% link "here", "mailto:me@leogenerali.com?Subject=Hello!" %}.</p>
@@ -16,10 +16,12 @@ layout: base.njk
 </section>
 <section class="fade-in fade-in--slow">
   {% for project in collections.projects %}
-    <div class="intro-project">
-      <p class="intro-project__title">{{ project.data.name }}</p>
-      <p class="intro-project__description">{{ project.data.description }}</p>
-      <div class="intro-project__links">
+    <div>
+      <p class="text-xl font-bold mb-4">{{ project.data.name }}</p>
+      <p class="border-l-4 border-gray-500 pl-4">
+        {{ project.data.description }}
+      </p>
+      <div class="mt-4">
         {% if project.templateContent %}
           {% link "Project Recape", project.url %}
         {% endif %}

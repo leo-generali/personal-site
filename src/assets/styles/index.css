@@ -26,17 +26,21 @@ body {
 }
 
 .container {
-  max-width: 46rem;
+  width: 46rem;
+}
+
+a:hover:after {
+  @apply border-indigo-600;
 }
 
 a:after {
   content: "";
   @apply border border-solid border-indigo-400 w-full absolute left-0;
-  bottom: -0.25rem;
+  bottom: -0.15rem;
 }
 
-p:first-child,
-p + p {
+.text p:first-child,
+.text p + p {
   @apply mb-6;
 }
 
