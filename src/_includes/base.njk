@@ -10,9 +10,17 @@
       {{ css | safe }}
     </style>
   </head>
-<body>
-  {% include "partials/navbar.njk" %}
-  <main class="container">
+<body class='text-gray-700 leading-normal'>
+  <nav class="container mx-auto px-8 mt-12 mb-32">
+    <ul class="flex">
+      {% for link in nav %}
+        <li class="mr-2">
+          {% link link.anchor, link.slug %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+  <main class="container mx-auto px-8">
     {{ content | safe }}
   </main>
   <script>

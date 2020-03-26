@@ -2,15 +2,16 @@
 layout: base.njk
 ---
 
-<section class="intro circle-in fade-in fade-in--med">
-  <h1 class="intro__header">Hey there! <span role="img" aria-label="Wave emoji">👋 </span> I'm Leo, a web developer living and working in Ann Arbor, Michigan.</h1>
-  <div class="intro__text">
-    <p>I'm currently working over at <a href="https://www.hearstautos.com/">Hearst Autos</a> on the Car & Driver brand where I help connect automobile shoppers and vendors.</p>
-    <p>Getting in touch with me is easy! You can find me on <a href="https://twitter.com/itsLeeOhGee">Twitter</a>, <a href="https://www.linkedin.com/in/leogenerali/">LinkedIn</a>, or <a href="https://github.com/leo-generali">Github</a>. To say hello,
-      you can reach my by email <a href="mailto:me@leogenerali.com?Subject=Hello!">here</a>.</p>
-    <p>If I'm not coding, I'm probably out running. I try and post all of my runs on Strava. If that sounds like your type of thing, you can check that out over <a href="https://www.strava.com/athletes/11876587">here.</a></p>
-    <p> When I find myself with a spare minute or two I enjoy working on personal projects. I'll typically try to solve an issue I'm running into. I learn a thing or two in the process and maybe solve a problem for others too. Here are some of the cooler
-      things I've made:</p>
+<section>
+  <h1 class="intro text-white mb-24 text-3xl font-bold">
+    Hey there! <span class='mr-1' role="img" aria-label="Wave emoji">👋 </span> I'm Leo, a web developer living and working in Ann Arbor, Michigan.
+  </h1>
+  <div>
+    <p>I'm currently working over at {% link "Hearst Autos", "https://www.hearstautos.com/" %} on the Car & Driver brand where I help connect automobile shoppers and vendors.</p>
+    <p>Getting in touch with me is easy! You can find me on {% link "Twitter", "https://twitter.com/itsLeeOhGee" %}, {% link "LinkedIn", "https://www.linkedin.com/in/leogenerali/"%}, or {% link "Github", "https://github.com/leo-generali" %}. To say hello,
+      you can reach my by email {% link "here", "mailto:me@leogenerali.com?Subject=Hello!" %}.</p>
+    <p>If I'm not coding, I'm probably out running. I try and post all of my runs on Strava. If that sounds like your type of thing, you can check that out over {% link "here", "https://www.strava.com/athletes/11876587"%}.</p>
+    <p> When I find myself with a spare minute or two I enjoy working on personal projects. I'll typically try to solve an issue I'm running into. I learn a thing or two in the process and maybe solve a problem for others too. Here are some of the cooler things I've made:</p>
   </div>
 </section>
 <section class="fade-in fade-in--slow">
@@ -20,10 +21,10 @@ layout: base.njk
       <p class="intro-project__description">{{ project.data.description }}</p>
       <div class="intro-project__links">
         {% if project.templateContent %}
-          <a href={{ project.url }}>Project Recap</a>
+          {% link "Project Recape", project.url %}
         {% endif %}
-        <a href={{ project.data.liveUrl }}>Live</a>
-        <a href={{ project.data.githubUrl }}>Github</a>
+        {% link "Live", project.data.liveUrl %}
+        {% link "Github", project.data.githubUrl %}
       </div>
     </div>
   {% endfor %}

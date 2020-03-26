@@ -1,5 +1,5 @@
-const markdownIt = require('markdown-it');
-const markdownItFootnote = require('markdown-it-footnote');
+const markdownIt = require("markdown-it");
+const markdownItFootnote = require("markdown-it-footnote");
 
 const renderFootnoteRef = (tokens, idx, options, env, slf) => {
   const id = slf.rules.footnote_anchor_name(tokens, idx, options, env, slf);
@@ -7,7 +7,7 @@ const renderFootnoteRef = (tokens, idx, options, env, slf) => {
   const refid = id;
 
   if (tokens[idx].meta.subId > 0) {
-    refid += ':' + tokens[idx].meta.subId;
+    refid += ":" + tokens[idx].meta.subId;
   }
 
   return `
@@ -30,7 +30,7 @@ const renderFootnoteAnchor = (tokens, idx, options, env, slf) => {
   const id = slf.rules.footnote_anchor_name(tokens, idx, options, env, slf);
 
   if (tokens[idx].meta.subId > 0) {
-    id += ':' + tokens[idx].meta.subId;
+    id += ":" + tokens[idx].meta.subId;
   }
 
   return `<a href="#a${id}" class="footnotes__back">(Back)</a>`;
@@ -40,7 +40,7 @@ const renderFootnoteOpen = (tokens, idx, options, env, slf) => {
   var id = slf.rules.footnote_anchor_name(tokens, idx, options, env, slf);
 
   if (tokens[idx].meta.subId > 0) {
-    id += ':' + tokens[idx].meta.subId;
+    id += ":" + tokens[idx].meta.subId;
   }
 
   return `<li class="footnotes__item" id="f${id}">`;
@@ -64,5 +64,5 @@ module.exports = function(eleventyConfig) {
   md.renderer.rules.footnote_open = renderFootnoteOpen;
   md.renderer.rules.footnote_close = renderFootnoteClose;
 
-  eleventyConfig.setLibrary('md', md);
+  eleventyConfig.setLibrary("md", md);
 };

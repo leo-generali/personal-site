@@ -1,19 +1,19 @@
-const inquirer = require('inquirer');
-const fs = require('fs');
-const jsToYaml = require('json-to-pretty-yaml');
-const prettier = require('prettier');
-const chalk = require('chalk');
+const inquirer = require("inquirer");
+const fs = require("fs");
+const jsToYaml = require("json-to-pretty-yaml");
+const prettier = require("prettier");
+const chalk = require("chalk");
 
 // Utils
-const slugify = (text) =>
+const slugify = text =>
   text
     .toString()
     .toLowerCase()
-    .replace(/\s+/g, '-') // Replace spaces with -
-    .replace(/[^\w\-]+/g, '') // Remove all non-word chars
-    .replace(/\-\-+/g, '-') // Replace multiple - with single -
-    .replace(/^-+/, '') // Trim - from start of text
-    .replace(/-+$/, ''); // Trim - from end of text
+    .replace(/\s+/g, "-") // Replace spaces with -
+    .replace(/[^\w\-]+/g, "") // Remove all non-word chars
+    .replace(/\-\-+/g, "-") // Replace multiple - with single -
+    .replace(/^-+/, "") // Trim - from start of text
+    .replace(/-+$/, ""); // Trim - from end of text
 
 const success = chalk.bold.green.inverse;
 
@@ -22,9 +22,9 @@ const newPost = async () => {
   if (args.length < 3) {
     // Get the title and category for the blog post
     const { title, type, tags } = await inquirer.prompt([
-      { type: 'input', name: 'title', message: 'Post Title:' },
-      { type: 'input', name: 'type', message: 'Post Type:' },
-      { type: 'input', name: 'tags', message: 'Post Tags (comma seperated):' }
+      { type: "input", name: "title", message: "Post Title:" },
+      { type: "input", name: "type", message: "Post Type:" },
+      { type: "input", name: "tags", message: "Post Tags (comma seperated):" }
     ]);
 
     // Turn the title into the slug
@@ -36,7 +36,7 @@ const newPost = async () => {
     const postPath = `./writing/${year}`;
 
     // Turn the tags into an array
-    const tagsArr = tags.split(',').map((tag) => tag.trim());
+    const tagsArr = tags.split(",").map(tag => tag.trim());
 
     // If the file year doesn't exist, automatically create it
     if (!fs.existsSync(postPath)) {
@@ -59,7 +59,7 @@ const newPost = async () => {
     const initialMarkdownPostTemplate = prettier.format(
       `---\n${frontMatter}\n---\n`,
       {
-        parser: 'markdown'
+        parser: "markdown"
       }
     );
 

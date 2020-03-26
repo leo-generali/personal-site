@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+
+.intro {
+  line-height: 1.75;
+  background-image: linear-gradient(
+    -60deg,
+    #ff6ad5,
+    #c774e8,
+    #ad8cff,
+    #8795e8,
+    #94d0ff
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.intro > span {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #fff;
+  background-clip: text;
+}
+
+body {
+  font-size: 1.0625rem;
+}
+
+.container {
+  max-width: 46rem;
+}
+
+a:after {
+  content: "";
+  @apply border border-solid border-indigo-400 w-full absolute left-0;
+  bottom: -0.25rem;
+}
+
+p:first-child,
+p + p {
+  @apply mb-6;
+}
+
+@tailwind utilities;

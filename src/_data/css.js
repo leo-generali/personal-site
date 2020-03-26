@@ -1,21 +1,32 @@
-const sass = require('node-sass');
-const path = require('path');
+const path = require("path");
+const postcss = require("postcss");
+const tailwindcss = require("tailwindcss");
+const autoprefixer = require("autoprefixer");
+const cssnano = require("cssnano");
+const fs = require("fs");
+const purgecss = require("@fullhuman/postcss-purgecss")({
+  content: [
+    "./src/*.njk",
+    "./src/_includes/*.njk",
+    "./src/_includes/partials/*.njk"
+  ],
+  defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+});
+
+const postCssConfig = {
+  development: [tailwindcss],
+  production: [tailwindcss, autoprefixer, purgecss, cssnano]
+};
 
 module.exports = async () => {
-  const sassPath = path.join(__dirname, '..', 'assets', 'styles', 'theme.scss');
+  const stylesheet = await fs.readFileSync(
+    path.join(__dirname, "..", "assets", "styles", "index.css"),
+    "utf8"
+  );
 
-  const options = {
-    file: sassPath,
-    outputStyle: 'compressed',
-    sourceComments: false
-  };
+  const css = await postcss(postCssConfig[process.env.ELEVENTY_ENV]).process(
+    stylesheet
+  );
 
-  const result = sass.renderSync(options);
-
-  if (!result.css) {
-    console.log('Error compiling stylesheet');
-    return 'Error compiling stylesheet';
-  }
-
-  return result.css.toString();
+  return css;
 };
