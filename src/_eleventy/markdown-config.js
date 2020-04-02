@@ -11,16 +11,16 @@ const renderFootnoteRef = (tokens, idx, options, env, slf) => {
   }
 
   return `
-    <sup id="a${id}">
-      <a href="#f${refid}">${caption}</a>
+    <sup class="text-indigo-400 hover:text-indigo-600" id="a${id}">
+      <a class="footnote-link" href="#f${refid}">${caption}</a>
     </sup>`;
 };
 
 const renderFootnoteBlockOpen = () => `
-  <section>
+  <section class='mt-20'>
   <hr>
-  <strong>Footnotes:</strong>
-  <ol class="footnotes">`;
+  <strong class='block mt-6'>Footnotes:</strong>
+  <ol class="pl-4 list-decimal">`;
 
 const renderFootnoteBlockClose = () => `
   </ol>
@@ -33,7 +33,7 @@ const renderFootnoteAnchor = (tokens, idx, options, env, slf) => {
     id += ":" + tokens[idx].meta.subId;
   }
 
-  return `<a href="#a${id}" class="footnotes__back">(Back)</a>`;
+  return `<a href="#a${id}" class="ml-1 text-indigo-400 hover:text-indigo-600 text-xs font-semibold">(Back)</a>`;
 };
 
 const renderFootnoteOpen = (tokens, idx, options, env, slf) => {
@@ -50,7 +50,7 @@ const renderFootnoteClose = () => {
   return `</li>`;
 };
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   const options = {
     html: true
   };

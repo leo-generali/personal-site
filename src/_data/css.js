@@ -4,6 +4,7 @@ const tailwindcss = require("tailwindcss");
 const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
 const fs = require("fs");
+
 const purgecss = require("@fullhuman/postcss-purgecss")({
   content: [
     "./src/*.njk",
@@ -15,8 +16,14 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
 });
 
 const postCssConfig = {
-  development: [tailwindcss],
-  production: [tailwindcss, autoprefixer, purgecss, cssnano]
+  development: [require("postcss-preset-env")({ stage: 0 }), tailwindcss],
+  production: [
+    require("postcss-preset-env")({ stage: 0 }),
+    tailwindcss,
+    autoprefixer,
+    purgecss,
+    cssnano
+  ]
 };
 
 module.exports = async () => {

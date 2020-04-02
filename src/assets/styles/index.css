@@ -29,19 +29,14 @@ body {
   max-width: 46rem;
 }
 
-a:not(.tag):hover:after {
+a:not(.tag):not(.footnote-link):hover:after {
   @apply border-indigo-600;
 }
 
-a:not(.tag):after {
+a:not(.tag):not(.footnote-link):after {
   content: "";
   @apply border border-solid border-indigo-400 w-full absolute left-0;
   bottom: -0.15rem;
-}
-
-.text p:first-child,
-.text p + p {
-  @apply mb-6;
 }
 
 .year:after {
@@ -56,6 +51,50 @@ a:not(.tag):after {
     #94d0ff
   );
   width: 0.3125rem;
+}
+
+.post {
+  & a {
+    @apply relative text-indigo-400;
+
+    &:hover {
+      @apply text-indigo-600;
+    }
+  }
+
+  & p {
+    @apply mb-4;
+  }
+
+  & h2 {
+    @apply text-indigo-400 text-2xl mt-8 mb-4 font-bold;
+  }
+
+  & table {
+    @apply w-full table mt-10 mb-10;
+  }
+
+  & th {
+    @apply p-1;
+  }
+
+  & td {
+    @apply p-1;
+  }
+
+  & tbody {
+    & tr:nth-child(odd) {
+      @apply bg-indigo-100;
+    }
+  }
+
+  & ul {
+    @apply pl-4 list-disc; 
+
+    & li {
+      @apply mb-4;
+    }
+  }
 }
 
 @tailwind utilities;

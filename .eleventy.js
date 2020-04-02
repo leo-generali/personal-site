@@ -1,6 +1,6 @@
-const shortcodes = require("./src/eleventy/shortcodes");
-const transforms = require("./src/eleventy/transforms");
-const filters = require("./src/eleventy/filters");
+const shortcodes = require("./src/_eleventy/shortcodes");
+const transforms = require("./src/_eleventy/transforms");
+const filters = require("./src/_eleventy/filters");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = function (eleventyConfig) {
@@ -34,7 +34,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("_redirects");
 
   // Configure markdown
-  eleventyConfig.addPlugin(require("./src/scripts/markdown-config"));
+  eleventyConfig.addPlugin(require("./src/_eleventy/markdown-config"));
 
   return {
     dir: {

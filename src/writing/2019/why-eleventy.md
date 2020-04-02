@@ -43,7 +43,7 @@ If that's not enough to convince you, check out this [tweet](https://twitter.com
 
 As I mentioned above, users coming to check out my website are not staying around too long[^1]. Since that was the case, I wanted to optimize my site for first-time users. Switching to shipping HTML/CSS with no JavaScript improved speed metrics across the board[^2]:
 
-|                        | Gatsby <span class="writing__table-unit">(seconds)<span> | 11ty <span class="writing__table-unit">(seconds)<span> | Improvement <span class="writing__table-unit">(percent)<span> |
+|                        | Gatsby <span class="text-xs">(seconds)<span> | 11ty <span class="text-xs">(seconds)<span> | Improvement <span class="text-xs">(percent)<span> |
 | ---------------------- | :------------------------------------------------------: | :----------------------------------------------------: | :-----------------------------------------------------------: |
 | First Contentful Paint |                           1.4s                           |                          0.8s                          |                             ~43%                              |
 | Speed Index            |                           1.5s                           |                          1.0s                          |                             ~33%                              |
