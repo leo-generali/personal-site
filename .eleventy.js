@@ -3,14 +3,14 @@ const transforms = require("./src/_eleventy/transforms");
 const filters = require("./src/_eleventy/filters");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
-module.exports = function (eleventyConfig) {
+module.exports = function(eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(syntaxHighlight);
 
   // Content Transforms
-  if (process.env.ELEVENTY_ENV === "production") {
-    eleventyConfig.addTransform("htmlmin", transforms.minifyHtml);
-  }
+  // if (process.env.ELEVENTY_ENV === "production") {
+  //   eleventyConfig.addTransform("htmlmin", transforms.minifyHtml);
+  // }
   eleventyConfig.addTransform("spoilerBlocks", transforms.spoilerBlocks);
 
   // Filters

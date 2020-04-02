@@ -8,7 +8,7 @@ const TAGS_TO_FILTER = ["writing"];
 
 module.exports = async () => {
   // Get paths to all posts
-  const postPaths = await glob.sync("./src/writing/*/**.md");
+  const postPaths = await glob.sync("./src/writing/**/*.md");
 
   // Loop over every post
   const tags = postPaths

@@ -1,7 +1,6 @@
 const path = require("path");
 const postcss = require("postcss");
 const tailwindcss = require("tailwindcss");
-const autoprefixer = require("autoprefixer");
 const cssnano = require("cssnano");
 const fs = require("fs");
 
@@ -10,7 +9,7 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
     "./src/*.njk",
     "./src/_includes/*.njk",
     "./src/_includes/partials/*.njk",
-    "./src/eleventy/*.js"
+    "./src/_eleventy/*.js"
   ],
   defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
 });
@@ -20,7 +19,6 @@ const postCssConfig = {
   production: [
     require("postcss-preset-env")({ stage: 0 }),
     tailwindcss,
-    autoprefixer,
     purgecss,
     cssnano
   ]
