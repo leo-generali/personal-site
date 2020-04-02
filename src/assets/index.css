@@ -1,6 +1,15 @@
 @tailwind base;
 @tailwind components;
 
+body {
+  font-size: 1.0625rem;
+}
+
+.container {
+  max-width: 46rem;
+}
+
+
 .intro {
   line-height: 1.75;
   background-image: linear-gradient(
@@ -13,27 +22,19 @@
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
 
-.intro > span {
-  -webkit-background-clip: text;
+  & > span {
+    -webkit-background-clip: text;
   -webkit-text-fill-color: #fff;
   background-clip: text;
+  }
 }
 
-body {
-  font-size: 1.0625rem;
-}
-
-.container {
-  max-width: 46rem;
-}
-
-a:not(.tag):not(.footnote-link):hover:after {
+a:not(.tag):not(.footnote-link):not(.post-link):hover:after {
   @apply border-indigo-600;
 }
 
-a:not(.tag):not(.footnote-link):after {
+a:not(.tag):not(.footnote-link):not(.post-link):after {
   content: "";
   @apply border border-solid border-indigo-400 w-full absolute left-0;
   bottom: -0.15rem;
@@ -41,7 +42,7 @@ a:not(.tag):not(.footnote-link):after {
 
 .year:after {
   content: "";
-  @apply absolute h-full left-0;
+  @apply absolute h-full left-0 w-2;
   background-image: linear-gradient(
     -60deg,
     #ff6ad5,
@@ -50,7 +51,6 @@ a:not(.tag):not(.footnote-link):after {
     #8795e8,
     #94d0ff
   );
-  width: 0.3125rem;
 }
 
 .post {

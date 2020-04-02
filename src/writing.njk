@@ -9,33 +9,25 @@ permalink: /writing/{{ currentPageTag }}/index.html
 ---
 {% set isMainPage = currentPageTag === "/" %}
 
-{{ writingTags | log }}
+{% macro tagElement(text, url) %}
+  <a 
+    href="{{ url }}" 
+    class="tag 
+      bg-indigo-400 text-white text-xs text-center px-2 py-1 rounded
+      hover:bg-indigo-600">{{ text }}</a>
+{% endmacro %}
 
 <section>
   <p class="text-xl font-bold mb-4">Sort by Tag</p>
-  <div class="flex">
+  <div class="grid gap-2" style='grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));'>
     {% if not isMainPage %}
-        <a 
-          href="/writing" 
-          class="
-            tag
-            bg-indigo-400 text-white text-xs text-center 
-            px-2 py-1 rounded transition duration-100
-            mr-2
-            hover:bg-indigo-600">all posts</a>
+      {{ tagElement('all posts', '/writing') }}
     {% endif %}
     {% for tag in writingTags %}
       {# Only show tags for pages the page you are not one #}
       {# Also do not show tag for homepage #}
       {% if currentPageTag !== tag and tag !== '/' %}
-        <a 
-          href="/writing/{{ tag }}" 
-          class="
-            tag
-            bg-indigo-400 text-white text-xs text-center 
-            px-2 py-1 rounded transition duration-100
-            mr-2
-            hover:bg-indigo-600">{{ tag }}</a>
+        {{ tagElement(tag, "/writing/" + tag) }}
       {% endif  %}
     {% endfor %}
   </div>
@@ -67,39 +59,44 @@ permalink: /writing/{{ currentPageTag }}/index.html
         {% year currentYear %}
         {% set year = currentYear %}
       {% endif %}
-      <div
-        class='
-          mb-8 grid grid-cols-1 gap-1 md:grid-cols-2
-          last:m-0'>
-        <div>{% link post.data.title, post.url %}</div>
-        <span class='ml-auto'>{{ post.data.date | formatDate('MMMM D, YYYY') }}</span>
-        <ul class='col-start-2 flex justify-end text-gray-600 font-semibold text-xs'>
-          {% if not post.data.published %}
-            <li class='mr-2'>DRAFT</li>
-          {% endif %}
+      <a 
+        class='post-link block rounded
+        pl-4 pr-4 py-2 mb-4
+        transition duration-200
+        hover:bg-gray-200' 
+        href='{{post.url}}'>
+        <p class='font-semibold'>{{ post.data.title }}</p>
+        <p class='mt-1 text-sm font-light'>{{ post.data.date | formatDate('MMMM D, YYYY') }}</p>
+        <ul 
+          class="flex text-gray-600 text-xs mt-1 md:ml-auto sm:justify-end sm:text-right">
           {% for postTag in post.data.tags %}
-            <li class='span {% if not loop.last %}mr-2{% endif %}'>{{ postTag }}</li>
+            {% if postTag !== 'writing' %}
+              <li class='mr-2 sm:ml-2 sm:mr-0'>{{ postTag }}</li>
+            {% endif %}
           {% endfor %}
         </ul>
-      </div>
+      </a>
     {% endfor %}
   {% else %}
     {% year currentPageTag | formatTag %}
     {% for post in posts %}
-      <div 
-        class='
-          mb-8 grid grid-cols-1 gap-1 md:grid-cols-2
-          last:m-0'>
-        <div>
-          {% link post.data.title, post.url %}
-        </div>
-        <span class='ml-auto'>{{ post.data.date | formatDate('MMMM D, YYYY') }}</span>
-        <ul class='col-start-2 flex justify-end text-gray-600 font-semibold text-xs'>
+      <a 
+        class='post-link block rounded
+        pl-4 pr-4 py-2 mb-4
+        transition duration-200
+        hover:bg-gray-200' 
+        href='{{post.url}}'>
+        <p class='font-semibold'>{{ post.data.title }}</p>
+        <p class='mt-1 text-sm font-light'>{{ post.data.date | formatDate('MMMM D, YYYY') }}</p>
+        <ul 
+          class="flex text-gray-600 text-xs mt-1 md:ml-auto sm:justify-end sm:text-right">
           {% for postTag in post.data.tags %}
-            <li class='span {% if not loop.last %}mr-2{% endif %}'>{{ postTag }}</li>
+            {% if postTag !== 'writing' %}
+              <li class='mr-2 sm:ml-2 sm:mr-0'>{{ postTag }}</li>
+            {% endif %}
           {% endfor %}
         </ul>
-      </div>
+      </a>
     {% endfor %}
   {% endif %}
 </section>
