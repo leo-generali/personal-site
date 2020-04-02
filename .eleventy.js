@@ -30,7 +30,8 @@ module.exports = function (eleventyConfig) {
 
   // Copy over favicon to build site
   eleventyConfig.addPassthroughCopy("favicon.ico");
-  eleventyConfig.addPassthroughCopy("./src/img");
+  eleventyConfig.addPassthroughCopy("./src/writing/2019/**/*.png");
+  eleventyConfig.addPassthroughCopy("./src/writing/2020/**/*.png");
   eleventyConfig.addPassthroughCopy("_redirects");
 
   // Configure markdown

@@ -64,4 +64,4 @@ Though Gatsby wasn't ultimately the right choice for me, that does not mean that
 For my specific use case, a full-fledged Gatsby application did not make sense. I surveyed a few other static site generators and ended up trying out Eleventy. It's got a ton of features I really like about it and stopped me from shipping unneeded JavaScript to the client. I've seen some performance benefits and haven't lost any features from my old Gatsby site.
 
 [^1]: I think this is probably the same for most personal developer blogs. Personally speaking, if I come across a post there's little chance that I'll click around and stay on the site. 9 times out of 10 once I've read the post I close the tab.
-[^2]: According to Google's Lighthouse tool. <a href="/img/writing/2019/eleventy-results.png">Eleventy results</a>. <a href="/img/writing/2019/gatsby-results.png">Gatsby results</a>.
+[^2]: According to Google's Lighthouse tool. <a href="eleventy-results.png">Eleventy results</a>. <a href="gatsby-results.png">Gatsby results</a>.

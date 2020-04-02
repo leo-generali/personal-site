@@ -28,7 +28,7 @@ const postCssConfig = {
 
 module.exports = async () => {
   const stylesheet = await fs.readFileSync(
-    path.join(__dirname, "..", "assets", "styles", "index.css"),
+    path.join(__dirname, "..", "assets", "index.css"),
     "utf8"
   );
 
