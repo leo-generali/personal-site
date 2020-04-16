@@ -17,6 +17,29 @@ permalink: /writing/{{ currentPageTag }}/index.html
       hover:bg-indigo-600">{{ text }}</a>
 {% endmacro %}
 
+{% macro postLink(post) %}
+  <a 
+  class='post-link block rounded
+  pl-4 pr-4 py-2 mb-4
+  transition duration-200
+  hover:bg-gray-200' 
+  href='{{post.url}}'>
+  <p class='font-semibold'>{{ post.data.title }}</p>
+  <p class='mt-1 text-sm font-light'>{{ post.data.date | formatDate('MMMM D, YYYY') }}</p>
+  <ul 
+    class="flex text-gray-600 text-xs mt-1 md:ml-auto sm:justify-end sm:text-right">
+    {% if not post.data.published %}
+      <li class='mr-2 sm:ml-2 sm:mr-0'><strong>DRAFT</strong></li>
+    {% endif %}
+    {% for postTag in post.data.tags %}
+      {% if postTag !== 'writing' %}
+        <li class='mr-2 sm:ml-2 sm:mr-0'>{{ postTag }}</li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</a>
+{% endmacro %}
+
 <section>
   <p class="text-xl font-bold mb-4">Sort by Tag</p>
   <div class="grid gap-2" style='grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));'>
@@ -59,44 +82,12 @@ permalink: /writing/{{ currentPageTag }}/index.html
         {% year currentYear %}
         {% set year = currentYear %}
       {% endif %}
-      <a 
-        class='post-link block rounded
-        pl-4 pr-4 py-2 mb-4
-        transition duration-200
-        hover:bg-gray-200' 
-        href='{{post.url}}'>
-        <p class='font-semibold'>{{ post.data.title }}</p>
-        <p class='mt-1 text-sm font-light'>{{ post.data.date | formatDate('MMMM D, YYYY') }}</p>
-        <ul 
-          class="flex text-gray-600 text-xs mt-1 md:ml-auto sm:justify-end sm:text-right">
-          {% for postTag in post.data.tags %}
-            {% if postTag !== 'writing' %}
-              <li class='mr-2 sm:ml-2 sm:mr-0'>{{ postTag }}</li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </a>
+      {{ postLink(post) }}
     {% endfor %}
   {% else %}
     {% year currentPageTag | formatTag %}
     {% for post in posts %}
-      <a 
-        class='post-link block rounded
-        pl-4 pr-4 py-2 mb-4
-        transition duration-200
-        hover:bg-gray-200' 
-        href='{{post.url}}'>
-        <p class='font-semibold'>{{ post.data.title }}</p>
-        <p class='mt-1 text-sm font-light'>{{ post.data.date | formatDate('MMMM D, YYYY') }}</p>
-        <ul 
-          class="flex text-gray-600 text-xs mt-1 md:ml-auto sm:justify-end sm:text-right">
-          {% for postTag in post.data.tags %}
-            {% if postTag !== 'writing' %}
-              <li class='mr-2 sm:ml-2 sm:mr-0'>{{ postTag }}</li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-      </a>
+      {{ postLink(post) }}
     {% endfor %}
   {% endif %}
 </section>

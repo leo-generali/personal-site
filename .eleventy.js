@@ -3,14 +3,14 @@ const transforms = require("./src/_eleventy/transforms");
 const filters = require("./src/_eleventy/filters");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
   // Plugins
   eleventyConfig.addPlugin(syntaxHighlight);
 
   // Content Transforms
-  // if (process.env.ELEVENTY_ENV === "production") {
-  //   eleventyConfig.addTransform("htmlmin", transforms.minifyHtml);
-  // }
+  if (process.env.ELEVENTY_ENV === "production") {
+    eleventyConfig.addTransform("htmlmin", transforms.minifyHtml);
+  }
   eleventyConfig.addTransform("spoilerBlocks", transforms.spoilerBlocks);
 
   // Filters
@@ -24,9 +24,9 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addShortcode("link", shortcodes.link);
   eleventyConfig.addShortcode("year", shortcodes.year);
 
-  eleventyConfig.addWatchTarget("./src/assets/styles/index.css");
+  eleventyConfig.addWatchTarget("./src/assets/*.css");
+  eleventyConfig.addWatchTarget("./src/_eleventy/**/*.js");
   eleventyConfig.addWatchTarget("./tailwind.config.js");
-  eleventyConfig.addWatchTarget("./src/eleventy/shortcodes.js");
 
   // Copy over favicon to build site
   eleventyConfig.addPassthroughCopy("favicon.ico");
@@ -40,7 +40,7 @@ module.exports = function(eleventyConfig) {
   return {
     dir: {
       input: "src",
-      output: "_site"
-    }
+      output: "_site",
+    },
   };
 };

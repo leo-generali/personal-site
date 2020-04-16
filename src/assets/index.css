@@ -1,3 +1,6 @@
+@import "syntax.css";
+@import "animations.css";
+
 @tailwind base;
 @tailwind components;
 
@@ -5,10 +8,15 @@ body {
   font-size: 1.0625rem;
 }
 
+.fade-in {
+  animation: fade-in .5s ease-out;
+  animation-delay: var(--animation-delay);
+  animation-fill-mode: both;
+}
+
 .container {
   max-width: 46rem;
 }
-
 
 .intro {
   line-height: 1.75;
@@ -25,8 +33,8 @@ body {
 
   & > span {
     -webkit-background-clip: text;
-  -webkit-text-fill-color: #fff;
-  background-clip: text;
+    -webkit-text-fill-color: #fff;
+    background-clip: text;
   }
 }
 
@@ -89,12 +97,18 @@ a:not(.tag):not(.footnote-link):not(.post-link):after {
   }
 
   & ul {
-    @apply pl-4 list-disc; 
+    @apply pl-4 list-disc;
 
     & li {
       @apply mb-4;
     }
   }
+}
+
+code {
+  @apply font-mono p-1;
+  font-size: 14px;
+  background: #f5f7ff;
 }
 
 @tailwind utilities;

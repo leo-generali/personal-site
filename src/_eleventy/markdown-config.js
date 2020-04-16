@@ -43,7 +43,7 @@ const renderFootnoteOpen = (tokens, idx, options, env, slf) => {
     id += ":" + tokens[idx].meta.subId;
   }
 
-  return `<li class="footnotes__item" id="f${id}">`;
+  return `<li id="f${id}">`;
 };
 
 const renderFootnoteClose = () => {
@@ -52,7 +52,7 @@ const renderFootnoteClose = () => {
 
 module.exports = function (eleventyConfig) {
   const options = {
-    html: true
+    html: true,
   };
 
   const md = markdownIt(options).use(markdownItFootnote);

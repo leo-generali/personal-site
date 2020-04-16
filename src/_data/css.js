@@ -9,19 +9,21 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
     "./src/*.njk",
     "./src/_includes/*.njk",
     "./src/_includes/partials/*.njk",
-    "./src/_eleventy/*.js"
+    "./src/_eleventy/*.js",
+    "./src/assets/syntax.css",
   ],
-  defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+  defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
 });
 
+const defaultConfig = [
+  require("postcss-preset-env")({ stage: 0 }),
+  require("postcss-import")({ path: ["./src/assets"] }),
+  tailwindcss,
+];
+
 const postCssConfig = {
-  development: [require("postcss-preset-env")({ stage: 0 }), tailwindcss],
-  production: [
-    require("postcss-preset-env")({ stage: 0 }),
-    tailwindcss,
-    purgecss,
-    cssnano
-  ]
+  development: defaultConfig,
+  production: [...defaultConfig, purgecss, cssnano],
 };
 
 module.exports = async () => {
