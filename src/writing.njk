@@ -1,10 +1,13 @@
 ---
 layout: base.njk
+
 pagination:
   data: writingTags
   size: 1
   alias: currentPageTag
+
 title: Writing
+published: true
 permalink: /writing/{{ currentPageTag }}/index.html
 ---
 {% set isMainPage = currentPageTag === "/" %}

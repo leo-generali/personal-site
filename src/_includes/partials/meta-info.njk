@@ -21,8 +21,10 @@
 <link rel="canonical" href="{{ currentUrl }}" />
 <meta name="description" content="{{ pageDesc }}" />
 
-{% if isNotIndexed %}
+{% if not published %}
   <meta name="robots" content="noindex, follow">
+{% else %}
+  <meta name="robots" content="index, follow">
 {% endif %}
 
 {# Twitter Meta Tags #}
@@ -30,7 +32,7 @@
 <meta name="twitter:description" content="{{ pageDesc }}" />
 {% if socialImage %}  
   <meta name="twitter:image" content="{{ socialImage }}" />
-  <meta name="twitter:image:alt" content="Page image for {{ site.name }}" />
+  <meta name="twitter:image:alt" content="{{ pageTitle }}" />
 {% endif %}
 
 {# Open graph tags #}
