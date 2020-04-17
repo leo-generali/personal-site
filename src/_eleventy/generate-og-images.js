@@ -3,14 +3,15 @@ const glob = require("fast-glob");
 const fs = require("fs");
 const rimraf = require("rimraf");
 
-(async () => {
+async function run() {
   const urls = await glob.sync("_site/writing/*/*/og-image/index.html");
-  // .map((path) => path.match(new RegExp("_site/" + "(.*)" + "index.html"))[1]);
 
   const createImagesPromise = new Promise((resolve, reject) => {
     urls.forEach(async (url, index) => {
       // Turn on puppeteer and create a page
-      const browser = await puppeteer.launch();
+      const browser = await puppeteer.launch({
+        headless: true,
+      });
       const page = await browser.newPage();
 
       // Set the viewport of our headless browser to the size
@@ -43,4 +44,6 @@ const rimraf = require("rimraf");
   createImagesPromise.then(() => {
     rimraf("_site/writing/*/*/og-image", () => {});
   });
-})();
+}
+
+run();
