@@ -1,6 +1,6 @@
 {# Set overall site meta tags #}
 {% set siteTitle = metadata.title %}
-{% set siteDesc = metadata.desc %}
+{% set siteDesc = metadata.description %}
 {% set currentUrl = metadata.url + page.url %}
 
 {# Set individual page meta tags #}
@@ -10,16 +10,16 @@
   {% set pageTitle = metadata.title %}
 {% endif %}
 
-{% if desc %}
-  {% set pageDesc = desc %}
+{% if description %}
+  {% set pageDescription = description %}
 {% else %}
-  {% set pageDesc = siteDesc %}
+  {% set pageDescription = siteDesc %}
 {% endif %}
 
 
 <title>{{ pageTitle }}</title>
 <link rel="canonical" href="{{ currentUrl }}" />
-<meta name="description" content="{{ pageDesc }}" />
+<meta name="description" content="{{ pageDescription }}" />
 
 {% if not published %}
   <meta name="robots" content="noindex, follow">
@@ -28,20 +28,22 @@
 {% endif %}
 
 {# Twitter Meta Tags #}
+<meta name="twitter:title" content="{{ pageTitle }}" />
+<meta name="twitter:description" content="{{ pageDescription }}" />
 <meta name="twitter:creator" content="@{{ metadata.twitter_handle | replace('@', '') }}" />
-<meta name="twitter:description" content="{{ pageDesc }}" />
 {% if socialImage %}  
   <meta name="twitter:image" content="{{ socialImage }}" />
   <meta name="twitter:image:alt" content="{{ pageTitle }}" />
+  <meta name="twitter:card" content="summary_large_image">
 {% endif %}
 
 {# Open graph tags #}
-<meta property="og:description" content="{{ pageDesc }}" />
+<meta property="og:description" content="{{ pageDescription }}" />
 <meta property="og:site_name" content="{{ siteTitle }}" />
 <meta property="og:title" content="{{ pageTitle }}" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="{{ currentUrl }}" />
 {% if socialImage %}
   <meta property="og:image" content="{{ socialImage }}" />
-  <meta property="og:image:alt" content="Page image for {{ metadata.name }}" />
+  <meta property="og:image:alt" content="{{ pageDescription }}" />
 {% endif %}

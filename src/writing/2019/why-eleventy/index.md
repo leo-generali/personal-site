@@ -3,6 +3,7 @@ date: 2019-03-22T00:00:00-0500
 title: Migrating Away from Gatsby
 type: Post
 published: true
+description: I moved my blog away from Gatsby 😱. Let's see what that process was like.
 tags: 
   - javascript
   - gatsby
