@@ -1,38 +1,18 @@
 .reveal {
-  -webkit-animation-name: reveal;
   animation-name: reveal;
-  -webkit-animation-duration: 0.5s;
   animation-duration: 0.5s;
-  -webkit-animation-timing-function: ease;
   animation-timing-function: ease;
-  -webkit-animation-delay: var(--animation-delay);
   animation-delay: var(--animation-delay);
-  -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-}
-
-@-webkit-keyframes reveal {
-  0% {
-    opacity: 0;
-    -webkit-transform: translateY(var(--animation-reveal-start-pos, 1rem));
-    transform: translateY(var(--animation-reveal-start-pos, 1rem));
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
 }
 
 @keyframes reveal {
   0% {
     opacity: 0;
-    -webkit-transform: translateY(var(--animation-reveal-start-pos, 1rem));
     transform: translateY(var(--animation-reveal-start-pos, 1rem));
   }
   100% {
     opacity: 1;
-    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
