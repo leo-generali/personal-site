@@ -1,7 +1,7 @@
 const path = require("path");
 const postcss = require("postcss");
 const tailwindcss = require("tailwindcss");
-const cssnano = require("cssnano");
+
 const fs = require("fs");
 
 const purgecss = require("@fullhuman/postcss-purgecss")({
@@ -23,7 +23,20 @@ const defaultConfig = [
 
 const postCssConfig = {
   development: defaultConfig,
-  production: [...defaultConfig, purgecss, cssnano],
+  production: [
+    ...defaultConfig,
+    require("cssnano")({
+      preset: [
+        "default",
+        {
+          discardComments: {
+            removeAll: true,
+          },
+        },
+      ],
+    }),
+    purgecss,
+  ],
 };
 
 module.exports = async () => {
