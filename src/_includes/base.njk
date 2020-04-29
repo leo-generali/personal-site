@@ -36,19 +36,16 @@
   </script> #}
   {% if hasSpoiler %}
     <script>
-      var spoilers = document.querySelectorAll('.spoiler');
+      const spoilers = [...document.querySelectorAll('.spoiler')];
 
       spoilers.forEach(spoiler => {
-        var btn = document.createElement('button');
-        var spoilerContent = spoiler.querySelector('.spoiler__content');
-        spoilerContent.classList.add('spoiler__content--hidden');
-
-        btn.classList = 'spoiler__reveal';
+        const btn = document.createElement('button');
+        btn.classList = 'absolute text-xs uppercase font-bold bg-indigo-400 text-white px-2 py-1 rounded tracking-widest z-10 top-0 left-0 hover:bg-indigo-600';
         btn.innerText = 'reveal';
 
         btn.addEventListener('click', function(event) {
           event.preventDefault();
-          spoilerContent.classList.add('spoiler__content--revealed');
+          spoiler.classList = '';
           this.remove();
         });
 

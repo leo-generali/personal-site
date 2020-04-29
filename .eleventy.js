@@ -11,7 +11,6 @@ module.exports = function (eleventyConfig) {
   if (process.env.ELEVENTY_ENV === "production") {
     eleventyConfig.addTransform("htmlmin", transforms.minifyHtml);
   }
-  eleventyConfig.addTransform("spoilerBlocks", transforms.spoilerBlocks);
 
   // Filters
   eleventyConfig.addFilter("keys", filters.keys);
@@ -24,8 +23,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("link", shortcodes.link);
   eleventyConfig.addShortcode("year", shortcodes.year);
 
+  // Paired Shortcodes
+  eleventyConfig.addPairedShortcode("spoiler", shortcodes.spoiler);
+
+  // Watch Targets
   eleventyConfig.addWatchTarget("./src/assets/*.css");
   eleventyConfig.addWatchTarget("./src/_eleventy/**/*.js");
+  eleventyConfig.addWatchTarget("./src/_eleventy/*.js");
   eleventyConfig.addWatchTarget("./tailwind.config.js");
 
   // Copy over favicon to build site

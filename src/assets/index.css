@@ -1,5 +1,6 @@
 @import "syntax.css";
 @import "animations.css";
+@import "spoilers.css";
 
 @tailwind base;
 @tailwind components;
