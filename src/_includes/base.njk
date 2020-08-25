@@ -12,7 +12,7 @@
   <nav class="container w-full mx-auto mt-12 mb-32 px-6 md:px-10">
     <ul class="flex">
       {% for link in nav %}
-        <li class="mr-2">
+        <li class="{% if loop.index0 === 0 %}mr-auto{% else %}mr-2{% endif %}">
           {% link link.anchor, link.slug %}
         </li>
       {% endfor %}
