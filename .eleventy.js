@@ -1,7 +1,8 @@
+require("dotenv").config();
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const shortcodes = require("./src/_eleventy/shortcodes");
 const transforms = require("./src/_eleventy/transforms");
 const filters = require("./src/_eleventy/filters");
-const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = function (eleventyConfig) {
   // Plugins
