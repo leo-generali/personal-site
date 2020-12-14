@@ -6,7 +6,9 @@ const isDevelopment = env === "development";
 
 const keys = (obj) => Object.keys(obj);
 
-const formatDate = (date, format) => moment(date).format(format);
+const formatDate = (date, format) => {
+  return moment(date).format(format);
+};
 
 const formatTag = (tag) =>
   tagMap[tag] || tag.charAt(0).toUpperCase() + tag.slice(1);

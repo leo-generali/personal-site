@@ -4,15 +4,16 @@ title: Migrating Away from Gatsby
 type: Post
 published: true
 description: I moved my blog away from Gatsby 😱. Let's see what that process was like.
-tags: 
+tags:
   - javascript
   - gatsby
   - react
   - eleventy
   - writing
 ---
-
+::: preface
 **Preface:** I think Gatsby is wonderful. It does a ton of fascinating things and it does them well. It might not have been the right tool for my personal website but that doesn't mean you shouldn't use it in your projects.
+:::
 
 ## Intro
 

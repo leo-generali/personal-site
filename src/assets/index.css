@@ -1,18 +1,13 @@
 @import "syntax.css";
 @import "animations.css";
 @import "spoilers.css";
+@import "post.css";
 
 @tailwind base;
 @tailwind components;
 
 body {
   font-size: 1.0625rem;
-}
-
-.fade-in {
-  animation: fade-in .5s ease-out;
-  animation-delay: var(--animation-delay);
-  animation-fill-mode: both;
 }
 
 .container {

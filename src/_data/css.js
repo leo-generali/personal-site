@@ -5,13 +5,7 @@ const tailwindcss = require("tailwindcss");
 const fs = require("fs");
 
 const purgecss = require("@fullhuman/postcss-purgecss")({
-  content: [
-    "./src/*.njk",
-    "./src/_includes/*.njk",
-    "./src/_includes/partials/*.njk",
-    "./src/_eleventy/*.js",
-    "./src/assets/*.css",
-  ],
+  content: ["./src/**/*.njk", "./src/_eleventy/*.js", "./src/assets/*.css"],
   defaultExtractor: (content) => content.match(/[\w-/:]+(?<!:)/g) || [],
 });
 

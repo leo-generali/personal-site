@@ -1,5 +1,6 @@
 const markdownIt = require("markdown-it");
 const markdownItFootnote = require("markdown-it-footnote");
+const markdownItContainer = require("markdown-it-container");
 
 const renderFootnoteRef = (tokens, idx, options, env, slf) => {
   const id = slf.rules.footnote_anchor_name(tokens, idx, options, env, slf);
@@ -55,7 +56,26 @@ module.exports = function (eleventyConfig) {
     html: true,
   };
 
-  const md = markdownIt(options).use(markdownItFootnote);
+  const md = markdownIt(options)
+    .use(markdownItFootnote)
+    .use(markdownItContainer, "preface", {
+      render: function (tokens, idx) {
+        if (tokens[idx].nesting === 1) {
+          return `<div class="preface bg-gray-200 p-4 rounded-md">`;
+        } else {
+          return "</div>";
+        }
+      },
+    })
+    .use(markdownItContainer, "spoiler", {
+      render: function (tokens, idx) {
+        if (tokens[idx].nesting === 1) {
+          return `<aside class="spoiler relative"><div>`;
+        } else {
+          return "</div></aside>";
+        }
+      },
+    });
 
   md.renderer.rules.footnote_block_open = renderFootnoteBlockOpen;
   md.renderer.rules.render_footnote_block_close = renderFootnoteBlockClose;

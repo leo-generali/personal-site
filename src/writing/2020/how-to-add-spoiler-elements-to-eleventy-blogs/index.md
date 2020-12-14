@@ -21,12 +21,11 @@ In the rare times that I do work through a problem I find thqat I take away more
 
 This post will outline how I built a "spoiler" feature for my blog[^1]. Upcoming tutorial posts will have hidden content that adds an extra safeguard for readers who prefer to work through problems themselves.
 
-If that's not something readers are interested in there is always the option to reveal the hidden element. 
+If that's not something readers are interested in there is always the option to reveal the hidden element.
 
-Before we start, an example of what I'm talkig about: 
+Before we start, an example of what I'm talkig about:
 
-{% spoiler %}
-
+::: spoiler
 ```js
 const isThisFeatureCool = true;
 
@@ -34,8 +33,7 @@ if(isThisFeatureCool) {
   console.log('Woah this is a cool feature! And helpful too!')
 }
 ```
-
-{% endspoiler %}
+:::
 
 
 
@@ -69,8 +67,8 @@ At this point the content I want initially hidden automatically gets wrapping in
 ```html
 <div class="spoiler">
   <button class="spoiler__reveal">reveal</button>
-  <div class="spoiler__content"> 
-    // Something I want to wrap in spoiler blocks! 
+  <div class="spoiler__content">
+    // Something I want to wrap in spoiler blocks!
   </div>
 </div>
 ```
@@ -110,7 +108,7 @@ Adding a `filter: blur` to the content is not the only way of achieving a spoile
 
 ## Revealing the Spoilers
 
-I want to keep my personal website light. The JavaScript to handle revealing the hidden content is only pulled in on blog posts that have the spoiler blocks in them. If there isn't a spoiler the JavaScript doesn't even get added. The script to reveal the content looks like this: 
+I want to keep my personal website light. The JavaScript to handle revealing the hidden content is only pulled in on blog posts that have the spoiler blocks in them. If there isn't a spoiler the JavaScript doesn't even get added. The script to reveal the content looks like this:
 
 ```js
 var btns = document.querySelectorAll('.spoiler__reveal');
@@ -124,9 +122,9 @@ btns.forEach(btn => {
 })
 ```
 
-There's some ES6 going on in here: 
+There's some ES6 going on in here:
 - I'm finding all of the `.spoiler__reveal` buttons.
-- On click, each button adds the `.spoiler__content--revealed` class to the `.spoiler__content` element. 
+- On click, each button adds the `.spoiler__content--revealed` class to the `.spoiler__content` element.
 - The button element itself gets removed because it is no longer needed. For my purposes once content has been revealed it is considered revealed until the page refreshes.
 
 ## Working Spoilers!

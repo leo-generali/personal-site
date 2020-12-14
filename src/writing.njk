@@ -13,23 +13,23 @@ permalink: /writing/{{ currentPageTag }}/index.html
 {% set isMainPage = currentPageTag === "/" %}
 
 {% macro tagElement(text, url) %}
-  <a 
-    href="{{ url }}" 
-    class="tag 
+  <a
+    href="{{ url }}"
+    class="tag
       bg-indigo-400 text-white text-xs text-center px-2 py-1 rounded
       hover:bg-indigo-600">{{ text }}</a>
 {% endmacro %}
 
 {% macro postLink(post) %}
-  <a 
+  <a
   class='post-link block rounded
   pl-4 pr-4 py-2 mb-4
   transition duration-200
-  hover:bg-gray-200' 
+  hover:bg-gray-200'
   href='{{post.url}}'>
   <p class='font-semibold'>{{ post.data.title }}</p>
   <p class='mt-1 text-sm font-light'>{{ post.data.date | formatDate('MMMM D, YYYY') }}</p>
-  <ul 
+  <ul
     class="flex text-gray-600 text-xs mt-1 md:ml-auto sm:justify-end sm:text-right">
     {% if not post.data.published %}
       <li class='mr-2 sm:ml-2 sm:mr-0'><strong>DRAFT</strong></li>
