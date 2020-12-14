@@ -6,6 +6,26 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
   },
   theme: {
+    typography: (theme) => ({
+      default: {
+        css: {
+          color: theme("colors.gray.700"),
+          a: {
+            "text-decoration": "none",
+            color: theme("colors.indigo.400"),
+            "&:hover": {
+              color: theme("colors.indigo.600"),
+            },
+          },
+          h1: {
+            color: theme("colors.indigo.400"),
+          },
+          h2: {
+            color: theme("colors.indigo.400"),
+          },
+        },
+      },
+    }),
     screens: {
       sm: "640px",
       md: "768px",
@@ -707,5 +727,5 @@ module.exports = {
   corePlugins: {
     container: false,
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

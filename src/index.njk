@@ -3,30 +3,29 @@ layout: base.njk
 ---
 
 <section class='mb-20'>
-  <h1 class="intro text-white mb-24 text-3xl font-bold reveal" style='--animation-delay: 0.1s; --animation-reveal-start-pos: -1rem'>
-    Hey there! <span class='mr-1' role="img" aria-label="Wave emoji">👋 </span> I'm Leo, a web developer living and working in Ann Arbor, Michigan.
+  <h1 class="intro text-white mb-24 text-4xl font-extrabold reveal leading-tight" style='--animation-delay: 0.2s; --animation-reveal-start-pos: -1rem; line-height: 1.1111111;'>
+    Hey there! <span class='mr-1' role="img" aria-label="Wave emoji">👋 </span> I'm Leo, a web developer living and working in New York City.
   </h1>
-  <div class='reveal' style='--animation-delay: 0.3s'>
-    <p class='mb-6'>I'm currently working over at {% link "Hearst Autos", "https://www.hearstautos.com/" %} on the Car & Driver brand where I help connect automobile shoppers and vendors.</p>
-    <p class='mb-6'>Getting in touch with me is easy! You can find me on {% link "Twitter", "https://twitter.com/itsLeeOhGee" %}, {% link "LinkedIn", "https://www.linkedin.com/in/leogenerali/"%}, or {% link "Github", "https://github.com/leo-generali" %}. To say hello,
+  <div class='prose reveal' style='--animation-delay: 0.5s'>
+    <p>I'm currently working over at {% link "Hearst Autos", "https://www.hearstautos.com/" %} on the Car & Driver brand where I help connect automobile shoppers and vendors.</p>
+    <p>Getting in touch with me is easy! You can find me on {% link "Twitter", "https://twitter.com/itsLeeOhGee" %}, {% link "LinkedIn", "https://www.linkedin.com/in/leogenerali/"%}, or {% link "Github", "https://github.com/leo-generali" %}. To say hello,
       you can {% link "reach me by email", "mailto:me@leogenerali.com?Subject=Hello!" %}.</p>
-    <p class='mb-6'>If I'm not coding, I'm probably out running. I try and post all of my runs on Strava. If that sounds like your type of thing, you can {% link "see my latest runs here", "https://www.strava.com/athletes/11876587"%}.</p>
-    <p> When I find myself with a spare minute or two I enjoy working on personal projects. I'll typically try to solve an issue I'm running into. I learn a thing or two in the process and maybe solve a problem for others too. Here are some of the cooler things I've made:</p>
+    <p>If I'm not coding I'm probably out running. If that sounds like your type of thing, you can {% link "check out my latest runs here", "https://www.strava.com/athletes/11876587"%} on Strava.</p>
+    <p>When I find myself with a spare minute or two I enjoy working on personal projects. I'll typically try to solve an issue I'm running into. I learn a thing or two in the process and maybe solve a problem for others too. Here are some of the cooler things I've made:</p>
   </div>
 </section>
-<section class="reveal" style='--animation-delay: 0.5s'>
+<section class="reveal" style='--animation-delay: 0.7s'>
   {% for project in collections.projects %}
     <div>
       <p class="text-xl font-bold mb-4">{{ project.data.name }}</p>
-      <p class="border-l-4 border-gray-500 pl-4">
-        {{ project.data.description }}
-      </p>
+      <div class='prose border-l-4 border-gray-500 pl-4'>
+        <p>{{ project.data.description }}</p>
+      </div>
       <div class="mt-4">
         {% if project.templateContent %}
           {% link "Project Recape", project.url %}
         {% endif %}
-        {% link "Live", project.data.liveUrl %}
-        {% link "Github", project.data.githubUrl %}
+        {% link "Live", project.data.liveUrl %} | {% link "Github", project.data.githubUrl %}
       </div>
     </div>
   {% endfor %}

@@ -2,8 +2,7 @@ const link = (text, url) => {
   return `
     <a 
       href='${url}' 
-      class='text-indigo-400 relative
-      hover:text-indigo-600'>${text}</a>`;
+      class='text-indigo-400 hover:text-indigo-600'>${text}</a>`;
 };
 
 const year = (num) =>

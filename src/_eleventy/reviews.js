@@ -1,6 +1,7 @@
 const Parser = require("rss-parser");
 const path = require("path");
 const cheerio = require("cheerio");
+const fetch = require("node-fetch");
 
 const AIRTABLE_URL = `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE}/reviews`;
 const CACHE_FILE_PATH = path.resolve(

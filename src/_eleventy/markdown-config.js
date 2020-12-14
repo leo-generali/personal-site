@@ -20,7 +20,7 @@ const renderFootnoteBlockOpen = () => `
   <section class='mt-20'>
   <hr>
   <strong class='block mt-6'>Footnotes:</strong>
-  <ol class="pl-4 list-decimal">`;
+  <ol class="pl-4">`;
 
 const renderFootnoteBlockClose = () => `
   </ol>
