@@ -1,5 +1,8 @@
 {
   "name": "blog-eleventy",
+  "engines": {
+    "node": ">=0.14"
+  },
   "version": "1.0.0",
   "description": "Personal website for Leo Generali",
   "main": "index.js",
