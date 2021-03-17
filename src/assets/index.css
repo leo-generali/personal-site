@@ -1,14 +1,9 @@
 @import "syntax.css";
 @import "animations.css";
 @import "spoilers.css";
-@import "post.css";
 
 @tailwind base;
 @tailwind components;
-
-body {
-  font-size: 1.0625rem;
-}
 
 .container {
   max-width: 46rem;
@@ -45,6 +40,89 @@ body {
     #8795e8,
     #94d0ff
   );
+}
+
+.flow  {
+  & * + * {
+    @apply mt-6;
+  }
+
+  & > *:first-child {
+    @apply mt-0;
+  }
+
+  & h1 {
+    @apply text-indigo-400 mt-8 mb-6 leading-relaxed font-semibold text-4xl;
+
+    & + * {
+      @apply mt-0;
+    }
+  }
+
+  & h2 {
+    @apply text-indigo-400 mt-5 mb-2 leading-relaxed font-semibold text-2xl;
+
+    & + * {
+      @apply mt-0;
+    }
+  }
+
+  & code {
+    @apply font-mono text-sm font-semibold bg-indigo-100;
+    padding: 2px;
+
+    &:before {
+      content: "`";
+    }
+
+    &:after {
+      content: "`";
+    }
+  }
+
+  & ol {
+    @apply list-decimal;
+  }
+
+  & table {
+    @apply w-full text-left mt-4 mb-4 text-sm leading-5;
+  }
+
+  & thead {
+    @apply text-gray-900 border-gray-400;
+    border-bottom-width: 1px;
+
+    & th {
+      @apply align-bottom pr-2 pb-2 pl-2;
+
+      &:first-child {
+        @apply pl-0;
+      }
+
+      &:last-child {
+        @apply pr-0;
+      }
+    }
+  }
+
+  & tbody {
+    & tr {
+      @apply border-gray-300;
+      border-bottom-width: 1px;
+    }
+
+    & td {
+      @apply align-top p-2;
+
+      &:first-child {
+        @apply pl-0;
+      }
+
+      &:last-child {
+        @apply pr-0;
+      }
+    }
+  }
 }
 
 @tailwind utilities;
