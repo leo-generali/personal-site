@@ -21,7 +21,7 @@
 <link rel="canonical" href="{{ currentUrl }}" />
 <meta name="description" content="{{ pageDescription }}" />
 
-{% if not published %}
+{% if published === false %}
   <meta name="robots" content="noindex, follow">
 {% else %}
   <meta name="robots" content="index, follow">

@@ -21,7 +21,7 @@ permalink: /writing/{{ currentPageTag }}/index.html
 {% endmacro %}
 
 {% macro postLink(post) %}
-  <a
+<a
   class='post-link block rounded
   pl-4 pr-4 py-2 mb-4
   transition duration-200
@@ -42,6 +42,8 @@ permalink: /writing/{{ currentPageTag }}/index.html
   </ul>
 </a>
 {% endmacro %}
+
+{{ currentPageTag }}
 
 <section>
   <p class="text-xl font-bold mb-4">Sort by Tag</p>
