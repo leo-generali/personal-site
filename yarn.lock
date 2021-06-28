@@ -93,16 +93,6 @@
     "@nodelib/fs.scandir" "2.1.4"
     fastq "^1.6.0"
 
-"@tailwindcss/typography@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@tailwindcss/typography/-/typography-0.4.0.tgz#b80974ad6af93df7b06e1981cb4d79698b6ad5c7"
-  integrity sha512-3BfOYT5MYNEq81Ism3L2qu/HRP2Q5vWqZtZRQqQrthHuaTK9qpuPfbMT5WATjAM5J1OePKBaI5pLoX4S1JGNMQ==
-  dependencies:
-    lodash.castarray "^4.4.0"
-    lodash.isplainobject "^4.0.6"
-    lodash.merge "^4.6.2"
-    lodash.uniq "^4.5.0"
-
 "@types/babel-types@*", "@types/babel-types@^7.0.0":
   version "7.0.9"
   resolved "https://registry.yarnpkg.com/@types/babel-types/-/babel-types-7.0.9.tgz#01d7b86949f455402a94c788883fe4ba574cad41"
@@ -699,15 +689,6 @@ clean-css@^4.1.11, clean-css@^4.2.1:
   dependencies:
     source-map "~0.6.0"
 
-clipboard@^2.0.0:
-  version "2.0.8"
-  resolved "https://registry.yarnpkg.com/clipboard/-/clipboard-2.0.8.tgz#ffc6c103dd2967a83005f3f61976aa4655a4cdba"
-  integrity sha512-Y6WO0unAIQp5bLmk1zdThRhgJt/x3ks6f30s3oE3H1mgIEU33XyQjEf8gsf6DxC7NPX8Y1SsNWjUjL/ywLnnbQ==
-  dependencies:
-    good-listener "^1.2.2"
-    select "^1.1.2"
-    tiny-emitter "^2.0.0"
-
 cliui@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/cliui/-/cliui-2.1.0.tgz#4b475760ff80264c762c3a1719032e91c7fea0d1"
@@ -1135,11 +1116,6 @@ del@^2.2.0:
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
     rimraf "^2.2.8"
-
-delegate@^3.1.2:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/delegate/-/delegate-3.2.0.tgz#b66b71c3158522e8ab5744f720d8ca0c2af59166"
-  integrity sha512-IofjkYBZaZivn0V8nnsMJGBr4jVLxHDheKSW88PyxS5QC4Vo9ZbZVvhzlSxY87fVq3STR6r+4cGepyHkcWOQSw==
 
 depd@~1.1.2:
   version "1.1.2"
@@ -1635,13 +1611,6 @@ globby@^5.0.0:
     object-assign "^4.0.1"
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
-
-good-listener@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/good-listener/-/good-listener-1.2.2.tgz#d53b30cdf9313dffb7dc9a0d477096aa6d145c50"
-  integrity sha1-1TswzfkxPf+33JoNR3CWqm0UXFA=
-  dependencies:
-    delegate "^3.1.2"
 
 graceful-fs@^4.1.2, graceful-fs@^4.1.4, graceful-fs@^4.1.6, graceful-fs@^4.2.0:
   version "4.2.6"
@@ -2252,30 +2221,15 @@ lodash._reinterpolate@^3.0.0:
   resolved "https://registry.yarnpkg.com/lodash._reinterpolate/-/lodash._reinterpolate-3.0.0.tgz#0ccf2d89166af03b3663c796538b75ac6e114d9d"
   integrity sha1-DM8tiRZq8Ds2Y8eWU4t1rG4RTZ0=
 
-lodash.castarray@^4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/lodash.castarray/-/lodash.castarray-4.4.0.tgz#c02513515e309daddd4c24c60cfddcf5976d9115"
-  integrity sha1-wCUTUV4wna3dTCTGDP3c9ZdtkRU=
-
 lodash.isfinite@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/lodash.isfinite/-/lodash.isfinite-3.3.2.tgz#fb89b65a9a80281833f0b7478b3a5104f898ebb3"
   integrity sha1-+4m2WpqAKBgz8LdHizpRBPiY67M=
 
-lodash.isplainobject@^4.0.6:
-  version "4.0.6"
-  resolved "https://registry.yarnpkg.com/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
-  integrity sha1-fFJqUtibRcRcxpC4gWO+BJf1UMs=
-
 lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
   integrity sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4=
-
-lodash.merge@^4.6.2:
-  version "4.6.2"
-  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
-  integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
 
 lodash.template@^4.5.0:
   version "4.5.0"
@@ -3461,11 +3415,9 @@ pretty@^2.0.0:
     js-beautify "^1.6.12"
 
 prismjs@^1.23.0:
-  version "1.23.0"
-  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.23.0.tgz#d3b3967f7d72440690497652a9d40ff046067f33"
-  integrity sha512-c29LVsqOaLbBHuIbsTxaKENh1N2EQBOHaWv7gkHN4dgRbxSREqDnDbtFJYdpPauS4YCplMSNCABQ6Eeor69bAA==
-  optionalDependencies:
-    clipboard "^2.0.0"
+  version "1.24.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.24.0.tgz#0409c30068a6c52c89ef7f1089b3ca4de56be2ac"
+  integrity sha512-SqV5GRsNqnzCL8k5dfAjCNhUrF3pR0A9lTDSCUZeh/LIshheXJEaP0hwLz2t4XHivd2J/v2HR+gRnigzeKe3cQ==
 
 progress@^2.0.1:
   version "2.0.3"
@@ -3855,11 +3807,6 @@ section-matter@^1.0.0:
   dependencies:
     extend-shallow "^2.0.1"
     kind-of "^6.0.0"
-
-select@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/select/-/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
-  integrity sha1-DnNQrN7ICxEIUoeG7B1EGNEbOW0=
 
 semver-compare@^1.0.0:
   version "1.0.0"
@@ -4251,11 +4198,6 @@ timsort@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
   integrity sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
-
-tiny-emitter@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/tiny-emitter/-/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
-  integrity sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
 
 to-array@0.1.4:
   version "0.1.4"
