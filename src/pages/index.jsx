@@ -4,9 +4,9 @@ import { PROJECTS } from "@/constants";
 export default function HomePage() {
   return (
     <Layout>
-      <section class="mb-20">
+      <section className="mb-20">
         <h1
-          class="intro text-white mb-24 text-4xl font-extrabold reveal leading-tight"
+          className="intro text-white mb-24 text-4xl font-extrabold reveal leading-tight"
           style={{
             "--animation-delay": "0.2s",
             "--animation-reveal-start-pos": "-1rem",
@@ -14,12 +14,10 @@ export default function HomePage() {
           }}
         >
           Hey there!{" "}
-          <span class="mr-1" role="img" aria-label="Wave emoji">
-            👋{" "}
-          </span>{" "}
+          <span className="mr-1" role="img" aria-label="Wave emoji">👋</span>{" "}
           I'm Leo, a software engineer living and working in New York City.
         </h1>
-        <div class="flow reveal" style={{ "--animation-delay": "0.5s" }}>
+        <div className="flow reveal" style={{ "--animation-delay": "0.5s" }}>
           <p>
             I'm currently working over at{" "}
             <Link href="https://www.hearstautos.com/">Hearst Autos</Link> where
@@ -57,19 +55,19 @@ export default function HomePage() {
         </div>
       </section>
       <section
-        class="reveal"
+        className="reveal"
         style={{
           "--animation-delay": "0.7s",
         }}
       >
         {PROJECTS.map((project) => {
           return (
-            <div>
-              <p class="text-xl font-bold mb-4">{project.name}</p>
-              <div class="flow border-l-4 border-gray-500 pl-4">
+            <div key={project.name}>
+              <p className="text-xl font-bold mb-4">{project.name}</p>
+              <div className="flow border-l-4 border-gray-500 pl-4">
                 <p>{project.description}</p>
               </div>
-              <div class="mt-4">
+              <div className="mt-4">
                 <Link href={project.liveUrl}>Live</Link> |{" "}
                 <Link href={project.githubUrl}>Github</Link>
               </div>
