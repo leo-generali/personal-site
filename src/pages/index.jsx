@@ -59,7 +59,7 @@ export default function HomePage() {
       <section
         class="reveal"
         style={{
-          "--animation-delay": "0.2s",
+          "--animation-delay": "0.7s",
         }}
       >
         {PROJECTS.map((project) => {
