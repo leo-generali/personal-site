@@ -2,8 +2,12 @@
 @import "animations.css";
 @import "spoilers.css";
 
-@tailwind base;
-@tailwind components;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+#__next {
+  @apply text-gray-700 leading-relaxed overflow-y-scroll flex flex-col min-h-screen;
+}
 
 .container {
   max-width: 46rem;
@@ -125,4 +129,4 @@
   }
 }
 
-@tailwind utilities;
+@import "tailwindcss/utilities";

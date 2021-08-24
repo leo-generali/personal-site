@@ -3,3 +3,5 @@ _datacache
 node_modules
 _data/assets.json
 src/styles/dist
+.next
+_src_copy
