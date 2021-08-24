@@ -1,8 +1,0 @@
-.spoiler div {
-  transition: 0.1s;
-  filter: blur(0.5rem);
-}
-
-.spoiler div:hover {
-  filter: blur(0.25rem);
-}

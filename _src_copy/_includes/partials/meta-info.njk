@@ -1,0 +1,49 @@
+{# Set overall site meta tags #}
+{% set siteTitle = metadata.title %}
+{% set siteDesc = metadata.description %}
+{% set currentUrl = metadata.url + page.url %}
+
+{# Set individual page meta tags #}
+{% if title %}
+  {% set pageTitle = title + " | " + metadata.title %}
+{% else %}
+  {% set pageTitle = metadata.title %}
+{% endif %}
+
+{% if description %}
+  {% set pageDescription = description %}
+{% else %}
+  {% set pageDescription = siteDesc %}
+{% endif %}
+
+
+<title>{{ pageTitle }}</title>
+<link rel="canonical" href="{{ currentUrl }}" />
+<meta name="description" content="{{ pageDescription }}" />
+
+{% if published === false %}
+  <meta name="robots" content="noindex, follow">
+{% else %}
+  <meta name="robots" content="index, follow">
+{% endif %}
+
+{# Twitter Meta Tags #}
+<meta name="twitter:title" content="{{ pageTitle }}" />
+<meta name="twitter:description" content="{{ pageDescription }}" />
+<meta name="twitter:creator" content="@{{ metadata.twitter_handle | replace('@', '') }}" />
+{% if socialImage %}
+  <meta name="twitter:image" content="{{ socialImage }}" />
+  <meta name="twitter:image:alt" content="{{ pageTitle }}" />
+  <meta name="twitter:card" content="summary_large_image">
+{% endif %}
+
+{# Open graph tags #}
+<meta property="og:description" content="{{ pageDescription }}" />
+<meta property="og:site_name" content="{{ siteTitle }}" />
+<meta property="og:title" content="{{ pageTitle }}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ currentUrl }}" />
+{% if socialImage %}
+  <meta property="og:image" content="{{ socialImage }}" />
+  <meta property="og:image:alt" content="{{ pageDescription }}" />
+{% endif %}

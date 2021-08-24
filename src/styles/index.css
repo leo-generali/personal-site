@@ -1,0 +1,132 @@
+@import "syntax.css";
+@import "animations.css";
+@import "spoilers.css";
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+#__next {
+  @apply text-gray-700 leading-relaxed overflow-y-scroll flex flex-col min-h-screen;
+}
+
+.container {
+  max-width: 46rem;
+}
+
+.intro {
+  line-height: 1.75;
+  background-image: linear-gradient(
+    -60deg,
+    #ff6ad5,
+    #c774e8,
+    #ad8cff,
+    #8795e8,
+    #94d0ff
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  & > span {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #fff;
+    background-clip: text;
+  }
+}
+
+.year:after {
+  content: "";
+  @apply absolute h-full left-0 w-2;
+  background-image: linear-gradient(
+    -60deg,
+    #ff6ad5,
+    #c774e8,
+    #ad8cff,
+    #8795e8,
+    #94d0ff
+  );
+}
+
+.flow  {
+  & * + * {
+    @apply mt-6;
+  }
+
+  & > *:first-child {
+    @apply mt-0;
+  }
+
+  & h1 {
+    @apply text-indigo-400 mt-8 mb-6 leading-relaxed font-semibold text-4xl;
+
+    & + * {
+      @apply mt-0;
+    }
+  }
+
+  & h2 {
+    @apply text-indigo-400 mt-5 mb-2 leading-relaxed font-semibold text-2xl;
+
+    & + * {
+      @apply mt-0;
+    }
+  }
+
+  & code {
+    @apply font-mono text-sm font-semibold bg-indigo-100;
+    padding: 2px;
+
+    &:before {
+      content: "`";
+    }
+
+    &:after {
+      content: "`";
+    }
+  }
+
+  & ol {
+    @apply list-decimal;
+  }
+
+  & table {
+    @apply w-full text-left mt-4 mb-4 text-sm leading-5;
+  }
+
+  & thead {
+    @apply text-gray-900 border-gray-400;
+    border-bottom-width: 1px;
+
+    & th {
+      @apply align-bottom pr-2 pb-2 pl-2;
+
+      &:first-child {
+        @apply pl-0;
+      }
+
+      &:last-child {
+        @apply pr-0;
+      }
+    }
+  }
+
+  & tbody {
+    & tr {
+      @apply border-gray-300;
+      border-bottom-width: 1px;
+    }
+
+    & td {
+      @apply align-top p-2;
+
+      &:first-child {
+        @apply pl-0;
+      }
+
+      &:last-child {
+        @apply pr-0;
+      }
+    }
+  }
+}
+
+@import "tailwindcss/utilities";
