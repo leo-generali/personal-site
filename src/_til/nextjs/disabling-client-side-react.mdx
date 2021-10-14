@@ -1,0 +1,23 @@
+---
+title: Disabling NextJS's Client Side React
+changelog:
+  - date: 10/14/2021
+    changes: 
+    - First published
+---
+
+NextJS has a hidden feature that stops pages from hydrating with client-side React JavaScript code. This means it's possible to use NextJS and get all the benefits of JSX as a templating language without shipping unnecessary React code to your users.
+
+This might not always be useful but there are times when it proves helpful. This blog is the perfect example use-case. It's not very interactive and doesn't need any JavaScript to function.
+
+To disable client-side JavaScript [the following code](https://twitter.com/timneutkens/status/1316132404227178498?s=20) can be added to any component under your `/pages` directory:
+
+```javascript
+export const config = {
+  unstable_runtimeJS: false
+};
+```
+
+This will remove any JavaScript from the final build of that page. This will **not** remove client-side code from other pages, so interactivity can be decided on a per-page basis.
+
+This blog makes heavy use of the above snippet. I want to keep it as lightweight as possible and avoid shipping JavaScript to the browser.

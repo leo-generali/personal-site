@@ -1,6 +1,6 @@
 export default function Link({ href, children }) {
   return (
-    <a className="text-indigo-400 hover:text-indigo-600 underline" href={href}>
+    <a className="cursor-pointer border-b-2 border-indigo-400 text-indigo-400 hover:text-indigo-600 hover:border-indigo-600" href={href}>
       {children}
     </a>
   );

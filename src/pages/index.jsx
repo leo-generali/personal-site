@@ -1,9 +1,10 @@
-import { Layout, Link } from "@/components";
+import { getContent } from "@/lib/content";
+import { Layout, Link, MDX } from "@/components";
 import { PROJECTS } from "@/constants";
 
-export default function HomePage() {
+export default function HomePage({ content }) {
   return (
-    <Layout>
+    <Layout description="Leo Generali is a software engineer living in New York City. He creates thoughtfully designed web apps.">
       <section className="mb-20">
         <h1
           className="intro text-white mb-24 text-4xl font-extrabold reveal leading-tight"
@@ -14,44 +15,13 @@ export default function HomePage() {
           }}
         >
           Hey there!{" "}
-          <span className="mr-1" role="img" aria-label="Wave emoji">👋</span>{" "}
+          <span className="mr-1" role="img" aria-label="Wave emoji">
+            👋
+          </span>{" "}
           I'm Leo, a software engineer living and working in New York City.
         </h1>
         <div className="flow reveal" style={{ "--animation-delay": "0.5s" }}>
-          <p>
-            I'm currently working over at{" "}
-            <Link href="https://www.hearstautos.com/">Hearst Autos</Link> where
-            I help build applications that connect automobile shoppers and
-            vendors.
-          </p>
-          <p>
-            Getting in touch with me is easy! You can find me on{" "}
-            <Link href="https://twitter.com/itsLeeOhGee">Twitter</Link>,{" "}
-            <Link href="https://www.linkedin.com/in/leogenerali/">
-              LinkedIn
-            </Link>
-            , or <Link href="https://github.com/leo-generali">Github</Link>. To
-            say hello, you can{" "}
-            <Link href="mailto:me@leogenerali.com?Subject=Hello!">
-              reach me by email
-            </Link>
-            .
-          </p>
-          <p>
-            If I'm not coding I'm probably out running. If that sounds like your
-            type of thing, you can{" "}
-            <Link href="https://www.strava.com/athletes/11876587">
-              check out my latest runs
-            </Link>{" "}
-            on Strava.
-          </p>
-          <p>
-            When I find myself with a spare minute or two I enjoy working on
-            personal projects. I'll typically try to solve an issue I'm running
-            into. I learn a thing or two in the process and maybe solve a
-            problem for others too. Here are some of the cooler things I've
-            made:
-          </p>
+          <MDX {...content} />
         </div>
       </section>
       <section
@@ -78,3 +48,18 @@ export default function HomePage() {
     </Layout>
   );
 }
+
+export async function getStaticProps() {
+  const content = await getContent("index");
+
+  return {
+    props: {
+      content,
+    },
+  };
+}
+
+export const config = {
+  unstable_runtimeJS: false,
+  unstable_JsPreload: false,
+};

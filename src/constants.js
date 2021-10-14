@@ -2,11 +2,18 @@ export const NAV = [
   {
     anchor: "Home",
     slug: "/",
+    icon: null,
   },
   {
-    anchor: "Writing",
-    slug: "/writing/",
+    anchor: "TIL",
+    slug: "/til",
+    icon: "📔",
   },
+  // TODO: Renable the writing page
+  // {
+  //   anchor: "Writing",
+  //   slug: "/writing/",
+  // },
 ];
 
 export const PROJECTS = [

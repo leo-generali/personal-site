@@ -1,12 +1,15 @@
-@import "syntax.css";
+@import "code.css";
 @import "animations.css";
-@import "spoilers.css";
 
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 
+body {
+  @apply text-gray-700 leading-relaxed overflow-y-scroll;
+}
+
 #__next {
-  @apply text-gray-700 leading-relaxed overflow-y-scroll flex flex-col min-h-screen;
+  @apply flex flex-col min-h-screen;
 }
 
 .container {
@@ -71,19 +74,6 @@
     }
   }
 
-  & code {
-    @apply font-mono text-sm font-semibold bg-indigo-100;
-    padding: 2px;
-
-    &:before {
-      content: "`";
-    }
-
-    &:after {
-      content: "`";
-    }
-  }
-
   & ol {
     @apply list-decimal;
   }
@@ -127,6 +117,11 @@
       }
     }
   }
+}
+
+.code-block[data-language]::after {
+  @apply absolute block right-4 top-4 bg-[#fec418] px-2 py-1 rounded-lg text-[#2f1e2e] text-xs;
+  content: attr(data-language);
 }
 
 @import "tailwindcss/utilities";
