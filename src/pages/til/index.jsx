@@ -1,4 +1,4 @@
-import { Layout } from "@/components";
+import { Layout, Plural } from "@/components";
 import { getTILs, getTopics } from "@/lib/tils";
 
 const TOPIC_KEY_TO_NAME = {
@@ -18,6 +18,9 @@ export default function TilIndexPage({ topics, tils }) {
 
   return (
     <Layout>
+      <section className="mb-12">
+        An ever growing collection of interesting things I learn throughout the day. As of right I've written <strong>{tils.length}</strong> TIL <Plural count={tils.length}>snippet</Plural>.
+      </section>
       <section className="grid gap-8 mb-8 md:grid-cols-2">
         <p className="text-xl font-bold col-span-full">Recent TILs</p>
         {featuredTils.map((til) => (
