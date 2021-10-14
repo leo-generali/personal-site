@@ -20,7 +20,7 @@
     "markdown-it-footnote": "^3.0.2",
     "moment": "^2.29.1",
     "next-mdx-remote": "^3.0.5",
-    "postcss": "^8.2.8",
+    "postcss": "^8.2.10",
     "postcss-import": "^14.0.0",
     "postcss-nested": "^5.0.6",
     "postcss-preset-env": "^6.7.0",
